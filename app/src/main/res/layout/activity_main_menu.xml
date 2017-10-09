@@ -1,0 +1,122 @@
+<LinearLayout android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/txtPendingRecord"
+        android:textColor="@color/bpDarker_red"
+        android:textSize="14dp"
+        android:gravity="left"
+        android:text=""
+        android:clickable="true"
+        android:onClick="onClickPending"
+        android:layout_gravity="center_horizontal" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/imageView2"
+        android:layout_width="79dp"
+        android:layout_height="59dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/white"
+        android:src="@drawable/logo_bethesda" />
+
+    <TextView
+        android:id="@+id/txtVersionMainMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_gravity="center_horizontal"
+        android:text="Version:"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="9dp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/cell_shape">
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.01"
+            android:background="@drawable/cell_shape"
+            android:baselineAligned="false">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnRegisOnline"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:background="@android:color/white"
+                android:drawableTop="@drawable/registration"
+                android:paddingBottom="10dp"
+                android:scaleType="fitXY"
+                android:text="Pendaftaran Online"
+                android:textSize="12dp" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnLoading"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:background="@android:color/white"
+                android:drawableTop="@drawable/stetoskop"
+                android:paddingBottom="10dp"
+                android:scaleType="fitXY"
+                android:text="Riwayat Pendaftaran"
+                android:textSize="12dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.01">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnJadwalDokter"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:drawableTop="@drawable/schedule"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:singleLine="false"
+                android:text="Jadwal Dokter Klinik"
+                android:textSize="12dp" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnSync"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:drawableTop="@drawable/bed"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:singleLine="false"
+                android:text="Tempat Tidur"
+                android:textSize="12dp" />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,34 @@
+package bethesda.com.bethesdahospitalmobile.main.Utility;
+
+import android.content.Context;
+import android.support.annotation.NonNull;
+
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+
+import bethesda.com.bethesdahospitalmobile.R;
+
+
+/**
+ * Created by Wendra on 10/6/2017.
+ */
+
+public class DialogAlert {
+
+    public void alertValidation(Context context, String title, String message) {
+        new MaterialStyledDialog.Builder(context)
+                .setTitle(title)
+                .setDescription(message)
+                .withDialogAnimation(true)
+                .setPositiveText("OK")
+                .setIcon(R.drawable.logo_bethesda)
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
+    }
+}
