@@ -1,4 +1,4 @@
-package bethesda.com.bethesdahospitalmobile.main.Utility;
+package bethesda.com.bethesdahospitalmobile.main.utility;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

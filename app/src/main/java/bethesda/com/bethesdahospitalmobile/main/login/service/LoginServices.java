@@ -7,9 +7,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
-import bethesda.com.bethesdahospitalmobile.main.Utility.WebServicesUtil;
+import bethesda.com.bethesdahospitalmobile.main.utility.WebServicesUtil;
 import bethesda.com.bethesdahospitalmobile.main.login.model.Login;
-import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -22,26 +21,26 @@ public class LoginServices {
     static OkHttpClient client = WebServicesUtil.connect();
     static String url = WebServicesUtil.getServiceUrl();
 
-    public static Login getLoginByNoRm(String noRM) throws IOException {
+    public static Login getLoginByNoRmServices(String noRM) throws IOException {
         Login login = new Login();
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(url + "/Pasien").newBuilder();
-        urlBuilder.addPathSegment(String.valueOf(noRM));
-        String url = urlBuilder.build().toString();
-
-        Request request = new Request.Builder().url(url).build();
+        Request request = new Request.Builder().url(url + "/Pasien/" + noRM).build();
         Response response = client.newCall(request).execute();
         String result = response.body().string();
-
         try {
             JSONObject jsonObject = new JSONObject(result);
-            if (!jsonObject.isNull("noRM")) {
-                login.setNoRM(jsonObject.getString("noRM"));
+            if (!jsonObject.isNull("NoRM")) {
+                login.setNoRM(jsonObject.getString("NoRM"));
+                Log.d("NO RM", jsonObject.getString("NoRM"));
+                login.setNamaPasien(jsonObject.getString("NamaPasien"));
                 login.setResponse(jsonObject.getString("response"));
                 login.setDeskripsiResponse(jsonObject.getString("deskripsiresponse"));
+                login.setAlamat(jsonObject.getString("Alamat"));
+                login.setDtglLahir(jsonObject.getString("dtgllahir"));
             }
         } catch (JSONException jEx) {
-            Log.d("MyError", jEx.getLocalizedMessage());
+            Log.d("Login Error", jEx.getLocalizedMessage());
         }
+
         return login;
     }
 
