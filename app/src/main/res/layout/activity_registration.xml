@@ -181,7 +181,7 @@
                             android:text="Klinik"
                             android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large"
                             android:textSize="14sp"
-                            app:layout_constraintHorizontal_bias="0.574"
+                            app:layout_constraintHorizontal_bias="0.514"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -204,9 +204,9 @@
                                 android:id="@+id/editklinikpicker"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="none"
                                 android:fontFamily="sans-serif-condensed"
                                 android:hint="Pilih Klinik Tujuan"
+                                android:inputType="none"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
                                 android:textSize="14sp" />
                         </android.support.design.widget.TextInputLayout>
@@ -258,7 +258,7 @@
                             android:text="Dokter"
                             android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large"
                             android:textSize="14sp"
-                            app:layout_constraintHorizontal_bias="0.595"
+                            app:layout_constraintHorizontal_bias="0.533"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -270,12 +270,13 @@
                             android:layout_height="51dp"
                             android:layout_marginBottom="8dp"
                             android:layout_marginEnd="8dp"
-                            android:layout_marginLeft="-16dp"
+                            android:layout_marginLeft="6dp"
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="-1dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/imageDokter">
+                            app:layout_constraintTop_toBottomOf="@+id/imageDokter"
+                            app:layout_constraintVertical_bias="0.133">
 
                             <EditText
                                 android:id="@+id/editDokPicker"
@@ -285,12 +286,25 @@
                                 android:hint="Pilih Dokter"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
                                 android:textSize="14sp" />
+
                         </android.support.design.widget.TextInputLayout>
 
+                        <Button
+                            android:id="@+id/btnRegistration"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="73dp"
+                            android:layout_height="39dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="80dp"
+                            android:background="@color/md_material_blue_600"
+                            android:text="Register"
+                            app:layout_constraintHorizontal_bias="0.498"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
                     </android.support.constraint.ConstraintLayout>
-
                 </android.support.v7.widget.CardView>
-
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
     </android.support.design.widget.CoordinatorLayout>

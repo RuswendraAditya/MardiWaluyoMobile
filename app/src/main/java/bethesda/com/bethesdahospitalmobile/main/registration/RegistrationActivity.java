@@ -6,10 +6,18 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+
 import bethesda.com.bethesdahospitalmobile.R;
+import bethesda.com.bethesdahospitalmobile.main.registration.model.Registration;
+import bethesda.com.bethesdahospitalmobile.main.registration.model.RegistrationResult;
+import bethesda.com.bethesdahospitalmobile.main.registration.service.RegistrationServices;
 import bethesda.com.bethesdahospitalmobile.main.utility.DialogAlert;
 import bethesda.com.bethesdahospitalmobile.main.utility.SharedData;
 import butterknife.BindView;
@@ -30,12 +38,21 @@ public class RegistrationActivity extends AppCompatActivity {
     EditText editklinikpicker;
     @BindView(R.id.editDokPicker)
     EditText editDokPicker;
+    @BindView(R.id.btnRegistration)
+    Button btnRegistration;
     public static final int REQUEST_CODE_KLINIK = 1;
     public static final int REQUEST_CODE_DOKTER = 2;
     private String kodeKlinik = null;
     private String namaKlinik = null;
     private String nidDokter = null;
     private String namaDokter = null;
+
+    @OnClick(R.id.btnRegistration)
+    public void editbtnRegistrationClick(View view) {
+        RegistrationTask registrationTask = new RegistrationTask();
+        registrationTask.execute();
+
+    }
 
     @OnClick(R.id.editklinikpicker)
     public void editklinikpickerClick(View view) {
@@ -75,7 +92,42 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     private void doRegistration() {
+        Registration registration = new Registration();
+        RegistrationResult registrationResult = new RegistrationResult();
+        registration.setKodeDokter(nidDokter);
+        registration.setKodeKlinik(kodeKlinik);
+        registration.setNoRM(SharedData.getKey(RegistrationActivity.this, "noRM"));
+        try {
+            registrationResult = RegistrationServices.postRegistration(registration);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (registrationResult.getResponse().equals("gagal")) {
+            final String deskripsiresponse = registrationResult.getDeskripsiResponse();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
 
+                    dialogAlert = new DialogAlert();
+                    dialogAlert.alertValidation(RegistrationActivity.this, "Warning", deskripsiresponse);
+
+                }
+            });
+
+        } else {
+            final String deskripsiresponse = registrationResult.getDeskripsiResponse();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    dialogAlert = new DialogAlert();
+                    dialogAlert.alertValidation(RegistrationActivity.this, "Warning", deskripsiresponse);
+
+                }
+            });
+        }
     }
 
     @Override
@@ -104,7 +156,8 @@ public class RegistrationActivity extends AppCompatActivity {
         }
         if (requestCode == REQUEST_CODE_DOKTER) {
             if (resultCode == RESULT_OK) {
-                nidDokter = data.getStringExtra("nid");
+                //Log.d("dokter",data.getStringExtra("nidDokter"));
+                nidDokter = data.getStringExtra("nidDokter");
                 namaDokter = data.getStringExtra("namaDokter");
                 editDokPicker.setText(namaDokter);
             }

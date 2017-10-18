@@ -52,7 +52,7 @@ public class DokterPickerActivity extends AppCompatActivity {
             DialogAlert dialogAlert = new DialogAlert();
             dialogAlert.alertValidation(DokterPickerActivity.this, "Warning", "Dokter Sedang Tidak Praktek Hari Ini");
         } else {
-            intent.putExtra("nid", dokter.getNid());
+            intent.putExtra("nidDokter", dokter.getNid());
             intent.putExtra("namaDokter", dokter.getNamaDokter());
 
             setResult(RESULT_OK, intent);

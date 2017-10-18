@@ -30,12 +30,13 @@ public class DokterServices {
         Request request = new Request.Builder().url(url + "/DokterKlinik/" + klinik).build();
         Response response = client.newCall(request).execute();
         String results = response.body().string();
-        try {
-            JSONArray jsonArray = new JSONArray(results);
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                Dokter dokter = new Dokter();
-                dokter.setMax(jsonObject.getInt("Max"));
+                try {
+                    JSONArray jsonArray = new JSONArray(results);
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        Dokter dokter = new Dokter();
+                        dokter.setMax(jsonObject.getInt("Max"));
+                        dokter.setNid(jsonObject.getString("NID"));
                 dokter.setNamaDokter(jsonObject.getString("NamaDokter"));
                 dokter.setPraktek(jsonObject.getString("praktek"));
 
