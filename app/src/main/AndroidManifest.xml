@@ -23,7 +23,10 @@
         <activity android:name=".main.main.MainMenuActivity" />
         <activity android:name=".main.registration.KlinikPickerActivity" />
         <activity android:name=".main.registration.RegistrationActivity" />
-        <activity android:name=".main.registration.DokterPickerActivity"></activity>
+        <activity android:name=".main.registration.DokterPickerActivity" />
+        <activity android:name=".main.registration.RegistrationHistoryActivity" />
+        <activity
+            android:name=".main.schedule.ScheduleActivity"></activity>
     </application>
 
 </manifest>

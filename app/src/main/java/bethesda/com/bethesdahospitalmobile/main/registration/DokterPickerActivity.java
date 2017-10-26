@@ -20,12 +20,14 @@ import bethesda.com.bethesdahospitalmobile.R;
 import bethesda.com.bethesdahospitalmobile.main.registration.adapter.DokterListAdapter;
 import bethesda.com.bethesdahospitalmobile.main.registration.model.Dokter;
 import bethesda.com.bethesdahospitalmobile.main.registration.service.DokterServices;
+import bethesda.com.bethesdahospitalmobile.main.utility.DatabaseHandler;
 import bethesda.com.bethesdahospitalmobile.main.utility.DialogAlert;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnItemClick;
 
 public class DokterPickerActivity extends AppCompatActivity {
+    DatabaseHandler db;
     @BindView(R.id.listDokter)
     ListView listDokter;
     @BindView(R.id.editDokterSearch)
@@ -35,10 +37,12 @@ public class DokterPickerActivity extends AppCompatActivity {
     int textlength = 0;
     DokterListAdapter adapter;
     String kodeKlinik = "";
+    String kodeDokter = "";
 
     @OnItemClick(R.id.listDokter)
     public void onItemClick(AdapterView<?> parent,
                             int position) {
+
         Dokter dokter = null;
         if (dokterList.size() > 0) {
             dokter = dokterList.get(position);
@@ -48,7 +52,7 @@ public class DokterPickerActivity extends AppCompatActivity {
         }
 
         Intent intent = new Intent();
-        if (dokter.getPraktek().equals("false")) {
+        if (!dokter.getPraktek().isEmpty()&& dokter.getPraktek().equals("false")) {
             DialogAlert dialogAlert = new DialogAlert();
             dialogAlert.alertValidation(DokterPickerActivity.this, "Warning", "Dokter Sedang Tidak Praktek Hari Ini");
         } else {
@@ -66,13 +70,15 @@ public class DokterPickerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dokter_picker);
         ButterKnife.bind(this);
+        db = new DatabaseHandler(this);
         kodeKlinik = getIntent().getStringExtra("kodeKlinik");
-        if (!kodeKlinik.equals("")) {
+        kodeDokter = getIntent().getStringExtra("kodeDokter");
+        if (!kodeKlinik.equals("") || !kodeDokter.equals("")) {
             DokterKlinikTask dokterKlinikTask = new DokterKlinikTask();
             dokterKlinikTask.execute();
         } else {
             DialogAlert dialogAlert = new DialogAlert();
-            dialogAlert.alertValidation(DokterPickerActivity.this, "Warning", "Mohon Maaf tidak Mendaptkan Data Dokter, mohon dicoba kembali");
+            dialogAlert.alertValidation(DokterPickerActivity.this, "Warning", "Mohon Maaf tidak Mendapatkan Data Dokter, mohon dicoba kembali");
         }
 
         editDokterSearch.addTextChangedListener(new TextWatcher() {
@@ -120,7 +126,12 @@ public class DokterPickerActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            getDokterKlinik();
+            if (kodeDokter.equals("") && !kodeKlinik.equals("")) {
+                getDokterKlinik();
+            }
+            if (kodeKlinik.equals("") && !kodeDokter.equals("")) {
+                getAllDokter();
+            }
             return null;
         }
 
@@ -147,6 +158,25 @@ public class DokterPickerActivity extends AppCompatActivity {
                 Log.d("Dokter List", dokter.getNamaDokter());
             }
         } catch (IOException e) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    DialogAlert dialogAlert = new DialogAlert();
+                    dialogAlert.alertValidation(DokterPickerActivity.this, "Warning", "Mohon Maaf tidak Mendaptkan Data Dokter, mohon dicoba kembali");
+                }
+            });
+        }
+
+
+    }
+
+    private void getAllDokter() {
+        try {
+            dokterList = db.getDokterFromDB();
+            for (Dokter dokter : dokterList) {
+                Log.d("Dokter List", dokter.getNamaDokter());
+            }
+        } catch (Exception e) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {

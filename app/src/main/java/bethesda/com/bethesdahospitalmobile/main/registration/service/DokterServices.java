@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bethesda.com.bethesdahospitalmobile.main.registration.model.Dokter;
+import bethesda.com.bethesdahospitalmobile.main.utility.DatabaseHandler;
 import bethesda.com.bethesdahospitalmobile.main.utility.WebServicesUtil;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -30,13 +31,13 @@ public class DokterServices {
         Request request = new Request.Builder().url(url + "/DokterKlinik/" + klinik).build();
         Response response = client.newCall(request).execute();
         String results = response.body().string();
-                try {
-                    JSONArray jsonArray = new JSONArray(results);
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        Dokter dokter = new Dokter();
-                        dokter.setMax(jsonObject.getInt("Max"));
-                        dokter.setNid(jsonObject.getString("NID"));
+        try {
+            JSONArray jsonArray = new JSONArray(results);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                Dokter dokter = new Dokter();
+                dokter.setMax(jsonObject.getInt("Max"));
+                dokter.setNid(jsonObject.getString("NID"));
                 dokter.setNamaDokter(jsonObject.getString("NamaDokter"));
                 dokter.setPraktek(jsonObject.getString("praktek"));
 
@@ -47,6 +48,30 @@ public class DokterServices {
         }
         return dokterList;
 
+    }
+
+    public static Boolean insertDokterToTable(DatabaseHandler db) throws IOException {
+        Request request = new Request.Builder().url(url + "/Dokter/").build();
+        Response response = client.newCall(request).execute();
+        String results = response.body().string();
+        try {
+            JSONArray jsonArray = new JSONArray(results);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String kodeDokter = jsonObject.getString("NID");
+                String namaDokter = jsonObject.getString("NamaDokter");
+                Dokter dokter = new Dokter();
+                dokter.setNid(kodeDokter);
+                dokter.setNamaDokter(namaDokter);
+                db.addDokterToTable(dokter);
+            }
+        } catch (JSONException jEx) {
+            Log.d("Klinik Error", jEx.getLocalizedMessage());
+            return false;
+        }
+
+
+        return true;
     }
 
 }

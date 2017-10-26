@@ -11,7 +11,7 @@ import okhttp3.OkHttpClient;
 public class WebServicesUtil {
 
     public static String getServiceUrl() {
-        final String SERVICE_URL = "xxxxxx123/API/";
+        final String SERVICE_URL = "http://180.214.244.190:8090/API/";
         return SERVICE_URL;
     }
 

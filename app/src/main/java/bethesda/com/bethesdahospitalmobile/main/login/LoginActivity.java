@@ -13,6 +13,7 @@ import bethesda.com.bethesdahospitalmobile.R;
 import bethesda.com.bethesdahospitalmobile.main.login.model.Login;
 import bethesda.com.bethesdahospitalmobile.main.login.service.LoginServices;
 import bethesda.com.bethesdahospitalmobile.main.main.MainMenuActivity;
+import bethesda.com.bethesdahospitalmobile.main.registration.service.DokterServices;
 import bethesda.com.bethesdahospitalmobile.main.registration.service.KlinikServices;
 import bethesda.com.bethesdahospitalmobile.main.utility.DatabaseHandler;
 import bethesda.com.bethesdahospitalmobile.main.utility.DialogAlert;
@@ -63,7 +64,10 @@ public class LoginActivity extends AppCompatActivity {
             final String desk_response = login.getDeskripsiResponse();
             if (response.equals("ok")) {
                 if (editNoRm.getText().toString().equals(noRM) && editPassword.getText().toString().equals(noRM)) {
-                    if (db.deleteAllKlinik() && KlinikServices.getAllKlinikServices(db)) {
+                    if (db.deleteAllKlinik()
+                            && KlinikServices.getAllKlinikServices(db)
+                            && db.deleteAllDokter()
+                            && DokterServices.insertDokterToTable(db)) {
                         Intent intent = new Intent(LoginActivity.this, MainMenuActivity.class);
                         startActivity(intent);
                     }

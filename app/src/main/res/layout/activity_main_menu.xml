@@ -16,7 +16,7 @@
         android:background="@android:color/white"
         android:src="@drawable/logo_bethesda" />
 
-    <TextView
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/txtVersionMainMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

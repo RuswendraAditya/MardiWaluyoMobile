@@ -18,6 +18,7 @@ import bethesda.com.bethesdahospitalmobile.R;
 import bethesda.com.bethesdahospitalmobile.main.registration.model.Registration;
 import bethesda.com.bethesdahospitalmobile.main.registration.model.RegistrationResult;
 import bethesda.com.bethesdahospitalmobile.main.registration.service.RegistrationServices;
+import bethesda.com.bethesdahospitalmobile.main.utility.DatabaseHandler;
 import bethesda.com.bethesdahospitalmobile.main.utility.DialogAlert;
 import bethesda.com.bethesdahospitalmobile.main.utility.SharedData;
 import butterknife.BindView;
@@ -46,6 +47,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private String namaKlinik = null;
     private String nidDokter = null;
     private String namaDokter = null;
+    private DatabaseHandler db;
 
     @OnClick(R.id.btnRegistration)
     public void editbtnRegistrationClick(View view) {
@@ -86,6 +88,7 @@ public class RegistrationActivity extends AppCompatActivity {
         } else {
             Intent intent = new Intent(RegistrationActivity.this, DokterPickerActivity.class);
             intent.putExtra("kodeKlinik", kodeKlinik);
+            intent.putExtra("kodeDokter","");
             startActivityForResult(intent, REQUEST_CODE_DOKTER);
         }
 
@@ -118,12 +121,13 @@ public class RegistrationActivity extends AppCompatActivity {
 
         } else {
             final String deskripsiresponse = registrationResult.getDeskripsiResponse();
+            db.addRegistrationToTable(registrationResult);
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
 
                     dialogAlert = new DialogAlert();
-                    dialogAlert.alertValidation(RegistrationActivity.this, "Warning", deskripsiresponse);
+                    dialogAlert.alertValidation(RegistrationActivity.this, "Suksess", deskripsiresponse);
 
                 }
             });
@@ -135,6 +139,7 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         ButterKnife.bind(this);
+        db = new DatabaseHandler(RegistrationActivity.this);
         initDataPasien();
     }
 

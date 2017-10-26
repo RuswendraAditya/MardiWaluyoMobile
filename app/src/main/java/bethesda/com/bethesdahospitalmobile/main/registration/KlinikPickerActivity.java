@@ -26,13 +26,23 @@ public class KlinikPickerActivity extends AppCompatActivity {
     EditText editKlinikSearch;
     private ArrayAdapter<String> adapter;
     private LinkedHashMap<String, String> klinikMap = new LinkedHashMap<>();
+    private LinkedHashMap<String, String> klinikMapTemp = new LinkedHashMap<>();
     private DatabaseHandler db;
+    int textlength = 0;
 
     @OnItemClick(R.id.listKlinik)
     public void onItemClick(AdapterView<?> parent,
                             int position) {
-        String klinik_kode = (String) klinikMap.keySet().toArray()[position];
-        String klinik_name = (String) klinikMap.values().toArray()[position];
+        String klinik_kode = null;
+        String klinik_name = null;
+        if (klinikMap.size() > 0) {
+            klinik_kode = (String) klinikMap.keySet().toArray()[position];
+            klinik_name = (String) klinikMap.values().toArray()[position];
+        }
+        if (klinikMapTemp.size() > 0) {
+            klinik_kode = (String) klinikMapTemp.keySet().toArray()[position];
+            klinik_name = (String) klinikMapTemp.values().toArray()[position];
+        }
         Intent intent = new Intent();
         intent.putExtra("kodeKlinik", klinik_kode);
         intent.putExtra("namaKlinik", klinik_name);
@@ -53,16 +63,32 @@ public class KlinikPickerActivity extends AppCompatActivity {
                 android.R.id.text1, new ArrayList<String>(klinikMap.values()));
         listKlinik.setAdapter(adapter);
 
+
         editKlinikSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                KlinikPickerActivity.this.adapter.getFilter().filter(s);
+                // KlinikPickerActivity.this.adapter.getFilter().filter(s);
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                KlinikPickerActivity.this.adapter.getFilter().filter(s);
+                klinikMapTemp.clear();
+                textlength = editKlinikSearch.getText().length();
+                for (int i = 0; i < klinikMap.size(); i++) {
+                    String value = (new ArrayList<String>(klinikMap.values())).get(i);
+                    String key = (new ArrayList<String>(klinikMap.keySet())).get(i);
+                    if (textlength <= value.length()) {
+                        if (value.toLowerCase().trim().contains(
+                                editKlinikSearch.getText().toString().toLowerCase().trim())) {
+                            klinikMapTemp.put(key, value);
+                        }
+                    }
+                }
+                adapter = new ArrayAdapter<String>(getApplicationContext(),
+                        android.R.layout.simple_list_item_1,
+                        android.R.id.text1, new ArrayList<String>(klinikMapTemp.values()));
+                listKlinik.setAdapter(adapter);
             }
 
             @Override
