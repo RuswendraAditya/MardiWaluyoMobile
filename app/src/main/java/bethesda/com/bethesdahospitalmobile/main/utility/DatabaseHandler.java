@@ -64,7 +64,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private void createTableDokter(SQLiteDatabase db) {
         String str_createTblDokter = "create table " + DOKTER_TABLE_NAME +
-                "(" + DOKTER_KODE  + " text," +
+                "(" + DOKTER_KODE + " text," +
                 DOKTER_NAMA + "  text);";
         db.execSQL(str_createTblDokter);
     }
@@ -127,6 +127,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
         return klinikMap;
     }
+
     public void addDokterToTable(Dokter dokter) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -135,6 +136,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.insert(DOKTER_TABLE_NAME, null, values);
         db.close();
     }
+
     public Boolean deleteAllDokter() {
         SQLiteDatabase db = this.getWritableDatabase();
         try {
@@ -145,13 +147,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         return true;
     }
+
     public List<Dokter> getDokterFromDB() {
-       List<Dokter> dokterList= new ArrayList<>();
+        List<Dokter> dokterList = new ArrayList<>();
         String strSql = "select * from " + DOKTER_TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(strSql, null);
         if (cursor.moveToFirst()) {
-            do {    Dokter dokter = new Dokter();
+            do {
+                Dokter dokter = new Dokter();
                 String dokter_kode = cursor.getString(cursor.getColumnIndex(DOKTER_KODE));
                 String dokter_name = cursor.getString(cursor.getColumnIndex(DOKTER_NAMA));
                 dokter.setNid(dokter_kode);
@@ -205,11 +209,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
         return regisList;
     }
+
     public List<RegistrationResult> getRegisFromDBByNoRM(String noRM) {
         List<RegistrationResult> regisList = new ArrayList<>();
-        String strSql = "select * from " + REGIS_TABLE_NAME +" WHERE " + REGIS_NO_RM + "=?";
+        String strSql = "select * from " + REGIS_TABLE_NAME + " WHERE " + REGIS_NO_RM + "=?";
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(strSql, new String[] {noRM});
+        Cursor cursor = db.rawQuery(strSql, new String[]{noRM});
         if (cursor.moveToFirst()) {
             do {
                 RegistrationResult result = new RegistrationResult();
@@ -228,5 +233,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         db.close();
         return regisList;
+    }
+
+    public void deleteRegisNotToday(String date) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(REGIS_TABLE_NAME, REGIS_TGL + " <> ?",
+                new String[]{String.valueOf(date)});
+        db.close();
     }
 }

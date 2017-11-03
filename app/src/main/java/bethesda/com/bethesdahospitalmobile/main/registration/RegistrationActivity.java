@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 
@@ -20,6 +21,7 @@ import bethesda.com.bethesdahospitalmobile.main.registration.model.RegistrationR
 import bethesda.com.bethesdahospitalmobile.main.registration.service.RegistrationServices;
 import bethesda.com.bethesdahospitalmobile.main.utility.DatabaseHandler;
 import bethesda.com.bethesdahospitalmobile.main.utility.DialogAlert;
+import bethesda.com.bethesdahospitalmobile.main.utility.NetworkStatus;
 import bethesda.com.bethesdahospitalmobile.main.utility.SharedData;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,49 +50,67 @@ public class RegistrationActivity extends AppCompatActivity {
     private String nidDokter = null;
     private String namaDokter = null;
     private DatabaseHandler db;
+    NetworkStatus networkStatus;
 
     @OnClick(R.id.btnRegistration)
     public void editbtnRegistrationClick(View view) {
-        RegistrationTask registrationTask = new RegistrationTask();
-        registrationTask.execute();
+        if (networkStatus.isOnline(RegistrationActivity.this)) {
+            RegistrationTask registrationTask = new RegistrationTask();
+            registrationTask.execute();
+        } else {
+            Toast.makeText(RegistrationActivity.this, "Koneksi Internet Tidak Ditemukan,Mohon Coba Kembali", Toast.LENGTH_LONG).show();
+
+        }
+
 
     }
 
     @OnClick(R.id.editklinikpicker)
     public void editklinikpickerClick(View view) {
-        editklinikpicker.setText("");
-        editDokPicker.setText("");
-        Intent intent = new Intent(RegistrationActivity.this, KlinikPickerActivity.class);
-        startActivityForResult(intent, REQUEST_CODE_KLINIK);
+        if (networkStatus.isOnline(RegistrationActivity.this)) {
+            editklinikpicker.setText("");
+            editDokPicker.setText("");
+            Intent intent = new Intent(RegistrationActivity.this, KlinikPickerActivity.class);
+            startActivityForResult(intent, REQUEST_CODE_KLINIK);
+        } else {
+            Toast.makeText(RegistrationActivity.this, "Koneksi Internet Tidak Ditemukan Saat mengambil data Klinik,Mohon Coba Kembali", Toast.LENGTH_LONG).show();
+
+        }
 
     }
 
     @OnClick(R.id.editDokPicker)
     public void editDokPickerrClick(View view) {
-        if (editklinikpicker.length() <= 0) {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    dialogAlert = new DialogAlert();
-                    dialogAlert.alertValidation(RegistrationActivity.this, "Warning", "Anda Belum Memilih Klinik");
-                }
-            });
+        if (networkStatus.isOnline(RegistrationActivity.this)) {
+            if (editklinikpicker.length() <= 0) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialogAlert = new DialogAlert();
+                        dialogAlert.alertValidation(RegistrationActivity.this, "Warning", "Anda Belum Memilih Klinik");
+                    }
+                });
 
-        } else if (kodeKlinik.length() <= 0 || kodeKlinik.equals(null)) {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    dialogAlert = new DialogAlert();
-                    dialogAlert.alertValidation(RegistrationActivity.this, "Warning", "Klinik tidak Ditemukan,mohon pilih ulang klinik");
-                }
-            });
+            } else if (kodeKlinik.length() <= 0 || kodeKlinik.equals(null)) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialogAlert = new DialogAlert();
+                        dialogAlert.alertValidation(RegistrationActivity.this, "Warning", "Klinik tidak Ditemukan,mohon pilih ulang klinik");
+                    }
+                });
 
+            } else {
+                Intent intent = new Intent(RegistrationActivity.this, DokterPickerActivity.class);
+                intent.putExtra("kodeKlinik", kodeKlinik);
+                intent.putExtra("kodeDokter", "");
+                startActivityForResult(intent, REQUEST_CODE_DOKTER);
+            }
         } else {
-            Intent intent = new Intent(RegistrationActivity.this, DokterPickerActivity.class);
-            intent.putExtra("kodeKlinik", kodeKlinik);
-            intent.putExtra("kodeDokter","");
-            startActivityForResult(intent, REQUEST_CODE_DOKTER);
+            Toast.makeText(RegistrationActivity.this, "Koneksi Internet Tidak Ditemukan saat mengambil data dokter,Mohon Coba Kembali", Toast.LENGTH_LONG).show();
+
         }
+
 
     }
 
@@ -139,8 +159,10 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         ButterKnife.bind(this);
+        networkStatus = new NetworkStatus();
         db = new DatabaseHandler(RegistrationActivity.this);
         initDataPasien();
+
     }
 
     private void initDataPasien() {

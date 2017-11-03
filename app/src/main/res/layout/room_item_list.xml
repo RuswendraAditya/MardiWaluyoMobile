@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#fff"
+    android:padding="15dp">
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/txtNamaKelas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtDokterHistory"
+        android:layout_alignEnd="@+id/textView7"
+        android:layout_alignStart="@+id/textView7"
+        android:fontFamily="sans-serif-condensed"
+        android:padding="2dp"
+        android:text="Kelas Utama"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:fontFamily="sans-serif-condensed" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/txtKosong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtKlinikHistory"
+        android:layout_below="@+id/txtKlinikHistory"
+        android:gravity="left|bottom"
+        android:text="Kosong : 12"
+        android:textColor="@color/colorAccent"
+        android:textSize="12sp"
+        android:typeface="serif"
+        app:fontFamily="sans-serif" />
+</LinearLayout>

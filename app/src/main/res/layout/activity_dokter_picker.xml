@@ -10,7 +10,7 @@
         android:hint="Cari Nama Dokter"
         android:inputType="textVisiblePassword" />
 
-    <AppCompat
+    <android.support.v7.widget.ListViewCompat
         android:id="@+id/listDokter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

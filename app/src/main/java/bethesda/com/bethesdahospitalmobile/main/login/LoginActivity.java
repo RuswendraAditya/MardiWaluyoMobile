@@ -8,15 +8,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import bethesda.com.bethesdahospitalmobile.R;
 import bethesda.com.bethesdahospitalmobile.main.login.model.Login;
 import bethesda.com.bethesdahospitalmobile.main.login.service.LoginServices;
-import bethesda.com.bethesdahospitalmobile.main.main.MainMenuActivity;
-import bethesda.com.bethesdahospitalmobile.main.registration.service.DokterServices;
-import bethesda.com.bethesdahospitalmobile.main.registration.service.KlinikServices;
+import bethesda.com.bethesdahospitalmobile.main.registration.RegistrationActivity;
+import bethesda.com.bethesdahospitalmobile.main.registration.RegistrationHistoryActivity;
 import bethesda.com.bethesdahospitalmobile.main.utility.DatabaseHandler;
+import bethesda.com.bethesdahospitalmobile.main.utility.DateUtil;
 import bethesda.com.bethesdahospitalmobile.main.utility.DialogAlert;
+import bethesda.com.bethesdahospitalmobile.main.utility.NetworkStatus;
 import bethesda.com.bethesdahospitalmobile.main.utility.SharedData;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,12 +33,18 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.editPassword)
     EditText editPassword;
     private DatabaseHandler db;
+    private NetworkStatus networkStatus;
 
     @OnClick(R.id.btnLogin)
     public void loginClick(View view) {
         if (isValidateLogin()) {
-            LoginTask loginTask = new LoginTask();
-            loginTask.execute();
+            if (networkStatus.isOnline(LoginActivity.this)) {
+                LoginTask loginTask = new LoginTask();
+                loginTask.execute();
+            } else {
+                Toast.makeText(LoginActivity.this, "Koneksi Internet Tidak Ditemukan saat login, mohon cek kembali", Toast.LENGTH_LONG).show();
+            }
+
         }
 
     }
@@ -47,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        networkStatus= new NetworkStatus();
         db = new DatabaseHandler(LoginActivity.this);
 
     }
@@ -56,21 +65,25 @@ public class LoginActivity extends AppCompatActivity {
         try {
             Login login = LoginServices.getLoginByNoRmServices(editNoRm.getText().toString());
             String noRM = login.getNoRM();
-            SharedData.setKey(LoginActivity.this,"noRM",login.getNoRM());
-            SharedData.setKey(LoginActivity.this,"namaPasien",login.getNamaPasien());
-            SharedData.setKey(LoginActivity.this,"tglLahir",login.getDtglLahir());
-            SharedData.setKey(LoginActivity.this,"alamat",login.getAlamat());
+            String tgl_lahir = DateUtil.changeFormatDate(login.getDtglLahir(), "dd/MM/yyyy", "ddMMyyyy");
+            String source = SharedData.getKey(LoginActivity.this, "source");
+            SharedData.setKey(LoginActivity.this, "noRM", login.getNoRM());
+            SharedData.setKey(LoginActivity.this, "namaPasien", login.getNamaPasien());
+            SharedData.setKey(LoginActivity.this, "tglLahir", login.getDtglLahir());
+            SharedData.setKey(LoginActivity.this, "alamat", login.getAlamat());
             final String response = login.getResponse();
             final String desk_response = login.getDeskripsiResponse();
             if (response.equals("ok")) {
-                if (editNoRm.getText().toString().equals(noRM) && editPassword.getText().toString().equals(noRM)) {
-                    if (db.deleteAllKlinik()
-                            && KlinikServices.getAllKlinikServices(db)
-                            && db.deleteAllDokter()
-                            && DokterServices.insertDokterToTable(db)) {
-                        Intent intent = new Intent(LoginActivity.this, MainMenuActivity.class);
+                if (editNoRm.getText().toString().equals(noRM) && editPassword.getText().toString().equals(tgl_lahir)) {
+                    if (source.equalsIgnoreCase("registration")) {
+                        Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
                         startActivity(intent);
                     }
+                    if (source.equalsIgnoreCase("history")) {
+                        Intent intent = new Intent(LoginActivity.this, RegistrationHistoryActivity.class);
+                        startActivity(intent);
+                    }
+                    finish();
                 } else {
                     runOnUiThread(new Runnable() {
                         @Override
@@ -117,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         if (editPassword.getText().toString().length() == 0) {
             editPassword.requestFocus();
-            editPassword.setError("Please Fill Password");
+            editPassword.setError("Masukan Tanggal Lahir");
             return false;
         }
 

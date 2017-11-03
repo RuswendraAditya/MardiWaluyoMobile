@@ -42,8 +42,8 @@ public class RegistrationHistoryAdapter extends RecyclerView.Adapter<Registratio
         customViewHolder.txtAntrianHistory.setStrokeColor("#87CEEB");
         customViewHolder.txtAntrianHistory.setSolidColor("#87CEEB");
         customViewHolder.txtKlinikHistory.setText("Klinik: " + registrationResult.getNamaKlinik());
-        customViewHolder.txtNamaPasienHistory.setText("Nama Pasien: " + registrationResult.getNamaPasien());
-        customViewHolder.txtTanggalHistory.setText("Tanggal: " + DateUtil.changeFormatDate(registrationResult.getTglReg(),"dd/MM/yyyy","dd-MMM-yyyy"));
+        customViewHolder.txtNamaPasienHistory.setText("Nama: " + registrationResult.getNamaPasien());
+        customViewHolder.txtTanggalHistory.setText("Tgl: " + DateUtil.changeFormatDate(registrationResult.getTglReg(),"dd/MM/yyyy","dd-MMM-yyyy"));
         customViewHolder.txtDokterHistory.setText("Dokter: " + registrationResult.getNamaDokter());
 
     }

@@ -2,6 +2,7 @@ package bethesda.com.bethesdahospitalmobile.main.utility;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -23,5 +24,13 @@ public class DateUtil {
         sdf= new SimpleDateFormat(format_new);
         String newFormatDate = sdf.format(parsedDate);
         return  newFormatDate;
+    }
+
+    public static String getCurrentDateTime(String format)
+    { //"dd-MM-yyyy HH:mm:ss"
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        String strDate = sdf.format(c.getTime());
+        return strDate;
     }
 }

@@ -25,8 +25,8 @@
         <activity android:name=".main.registration.RegistrationActivity" />
         <activity android:name=".main.registration.DokterPickerActivity" />
         <activity android:name=".main.registration.RegistrationHistoryActivity" />
-        <activity
-            android:name=".main.schedule.ScheduleActivity"></activity>
+        <activity android:name=".main.schedule.ScheduleActivity" />
+        <activity android:name=".main.room.EmptyRoomActivity"></activity>
     </application>
 
 </manifest>
