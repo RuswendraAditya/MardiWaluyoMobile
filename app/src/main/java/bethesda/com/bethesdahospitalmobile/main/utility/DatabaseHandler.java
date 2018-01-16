@@ -237,7 +237,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public void deleteRegisNotToday(String date) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(REGIS_TABLE_NAME, REGIS_TGL + " <> ?",
+        db.delete(REGIS_TABLE_NAME, REGIS_TGL + "< ?",
                 new String[]{String.valueOf(date)});
         db.close();
     }

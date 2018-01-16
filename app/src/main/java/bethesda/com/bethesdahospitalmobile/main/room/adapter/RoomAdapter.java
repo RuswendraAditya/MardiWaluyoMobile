@@ -39,7 +39,9 @@ public class RoomAdapter extends ArrayAdapter<Room> {
         if (row == null) {
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
             row = inflater.inflate(layoutResourceId, parent, false);
+           // holder.gridView = (GridView) row.findViewById(R.id.gridDashboard);
             row.setLayoutParams(new GridView.LayoutParams(GridView.AUTO_FIT, 300));
+           //row.setLayoutParams(new );
             holder = new RecordHolder();
             holder.txtKosong = (TextView) row.findViewById(R.id.txtKosong);
             holder.txtNamaKelas= (TextView) row.findViewById(R.id.txtNamaKelas);
@@ -49,6 +51,7 @@ public class RoomAdapter extends ArrayAdapter<Room> {
         }
         Room room = roomList.get(position);
         holder.txtKosong.setText("Tersedia: "+String.valueOf(room.getKamarKosong()));
+      //  holder.txtNamaKelas.setGravity(Gravity.LEFT);
        // holder.txtNamaKelas.setStrokeWidth(1);
         //holder.txtNamaKelas.setStrokeColor("#87CEEB");
         //holder.txtNamaKelas.setSolidColor("#87CEEB");
@@ -59,6 +62,7 @@ public class RoomAdapter extends ArrayAdapter<Room> {
     static class RecordHolder {
         TextView txtKosong;
         TextView txtNamaKelas;
+        GridView gridView;
     }
 
 }

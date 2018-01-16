@@ -1,17 +1,22 @@
 package bethesda.com.bethesdahospitalmobile.main.registration;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 import bethesda.com.bethesdahospitalmobile.R;
 import bethesda.com.bethesdahospitalmobile.main.utility.DatabaseHandler;
@@ -58,9 +63,23 @@ public class KlinikPickerActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         db = new DatabaseHandler(KlinikPickerActivity.this);
         klinikMap = db.getKlinikFromDB();
-        adapter = new ArrayAdapter<String>(this,
+        // Create a List from String Array elements
+        List<String> klinik_list = new ArrayList<String>(klinikMap.values());
+
+        // Create an ArrayAdapter from List
+        adapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_1,  klinik_list){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent){
+                View view = super.getView(position, convertView, parent);
+                TextView tv = (TextView) view.findViewById(android.R.id.text1);
+                tv.setTextColor(Color.BLACK);
+                return view;
+            }
+        };
+      /*  adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,
-                android.R.id.text1, new ArrayList<String>(klinikMap.values()));
+                android.R.id.text1, new ArrayList<String>(klinikMap.values()));*/
         listKlinik.setAdapter(adapter);
 
 
@@ -85,9 +104,24 @@ public class KlinikPickerActivity extends AppCompatActivity {
                         }
                     }
                 }
-                adapter = new ArrayAdapter<String>(getApplicationContext(),
-                        android.R.layout.simple_list_item_1,
-                        android.R.id.text1, new ArrayList<String>(klinikMapTemp.values()));
+                List<String> klinik_list = new ArrayList<String>( klinikMapTemp.values());
+
+                // Create an ArrayAdapter from List
+                adapter = new ArrayAdapter<String>
+                        (getApplicationContext(), android.R.layout.simple_list_item_1,  klinik_list){
+                    @Override
+                    public View getView(int position, View convertView, ViewGroup parent){
+                        View view = super.getView(position, convertView, parent);
+                        TextView tv = (TextView) view.findViewById(android.R.id.text1);
+                        tv.setTextColor(Color.BLACK);
+                        return view;
+                    }
+                };
+            // adapter = new ArrayAdapter<String>(getApplicationContext(),
+              //          android.R.layout.simple_list_item_1,
+               //         android.R.id.text1, new ArrayList<String>(klinikMapTemp.values()));
+                // Create an ArrayAdapter from List
+
                 listKlinik.setAdapter(adapter);
             }
 

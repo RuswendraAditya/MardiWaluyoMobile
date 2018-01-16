@@ -54,7 +54,7 @@ public class DokterPickerActivity extends AppCompatActivity {
         Intent intent = new Intent();
         if (!dokter.getPraktek().isEmpty()&& dokter.getPraktek().equals("false")) {
             DialogAlert dialogAlert = new DialogAlert();
-            dialogAlert.alertValidation(DokterPickerActivity.this, "Warning", "Dokter Sedang Tidak Praktek Hari Ini");
+            dialogAlert.alertValidation(DokterPickerActivity.this, "Peringatan", "Dokter Sedang Tidak Praktek Hari Ini");
         } else {
             intent.putExtra("nidDokter", dokter.getNid());
             intent.putExtra("namaDokter", dokter.getNamaDokter());
@@ -78,7 +78,7 @@ public class DokterPickerActivity extends AppCompatActivity {
             dokterKlinikTask.execute();
         } else {
             DialogAlert dialogAlert = new DialogAlert();
-            dialogAlert.alertValidation(DokterPickerActivity.this, "Warning", "Mohon Maaf tidak Mendapatkan Data Dokter, mohon dicoba kembali");
+            dialogAlert.alertValidation(DokterPickerActivity.this, "Peringatan", "Mohon Maaf tidak Mendapatkan Data Dokter, mohon dicoba kembali");
         }
 
         editDokterSearch.addTextChangedListener(new TextWatcher() {
@@ -162,7 +162,7 @@ public class DokterPickerActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     DialogAlert dialogAlert = new DialogAlert();
-                    dialogAlert.alertValidation(DokterPickerActivity.this, "Warning", "Mohon Maaf tidak Mendaptkan Data Dokter, mohon dicoba kembali");
+                    dialogAlert.alertValidation(DokterPickerActivity.this, "Peringatan", "Mohon Maaf tidak Mendaptkan Data Dokter, mohon dicoba kembali");
                 }
             });
         }
@@ -181,7 +181,7 @@ public class DokterPickerActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     DialogAlert dialogAlert = new DialogAlert();
-                    dialogAlert.alertValidation(DokterPickerActivity.this, "Warning", "Mohon Maaf tidak Mendaptkan Data Dokter, mohon dicoba kembali");
+                    dialogAlert.alertValidation(DokterPickerActivity.this, "Peringatan", "Mohon Maaf tidak Mendaptkan Data Dokter, mohon dicoba kembali");
                 }
             });
         }

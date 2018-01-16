@@ -14,7 +14,6 @@ public class DateUtil {
     public static String changeFormatDate(String date_input,String format_old,String format_new)
     {
         SimpleDateFormat sdf = new SimpleDateFormat(format_old);
-
         Date parsedDate = null;
         try {
             parsedDate = sdf.parse(date_input);

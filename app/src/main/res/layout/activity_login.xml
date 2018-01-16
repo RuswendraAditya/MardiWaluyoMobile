@@ -70,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
-                android:hint="Password"
+                android:hint="Tgl Lahir (ddmmyyyy)"
                 android:inputType="textPassword"
                 android:textColorHighlight="@android:color/black"
                 android:textColorLink="@color/md_divider_black" />

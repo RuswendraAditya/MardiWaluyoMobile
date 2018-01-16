@@ -65,7 +65,21 @@ public class LoginActivity extends AppCompatActivity {
         try {
             Login login = LoginServices.getLoginByNoRmServices(editNoRm.getText().toString());
             String noRM = login.getNoRM();
-            String tgl_lahir = DateUtil.changeFormatDate(login.getDtglLahir(), "dd/MM/yyyy", "ddMMyyyy");
+            String tgl_lahir ="";
+            try {
+                 tgl_lahir  = DateUtil.changeFormatDate(login.getDtglLahir(), "dd/MM/yyyy", "ddMMyyyy");
+            }
+            catch(Exception e){
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialogAlert = new DialogAlert();
+                        dialogAlert.alertValidation(LoginActivity.this, "Peringatan",
+                                "Format Tanggal yang anda masukan tidak sesuai");
+                    }
+                });
+            }
+
             String source = SharedData.getKey(LoginActivity.this, "source");
             SharedData.setKey(LoginActivity.this, "noRM", login.getNoRM());
             SharedData.setKey(LoginActivity.this, "namaPasien", login.getNamaPasien());
@@ -89,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             dialogAlert = new DialogAlert();
-                            dialogAlert.alertValidation(LoginActivity.this, "Warning",
+                            dialogAlert.alertValidation(LoginActivity.this, "Peringatan",
                                     "Login Gagal,mohon cek kembali No RM dan Tanggal lahir anda");
                         }
                     });
@@ -101,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         dialogAlert = new DialogAlert();
-                        dialogAlert.alertValidation(LoginActivity.this, "Warning",
+                        dialogAlert.alertValidation(LoginActivity.this, "Peringatan",
                                 desk_response);
 
                     }
@@ -112,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    dialogAlert.alertValidation(LoginActivity.this, "Warning",
+                    dialogAlert.alertValidation(LoginActivity.this, "Peringatan",
                             e.getMessage());
                 }
             });

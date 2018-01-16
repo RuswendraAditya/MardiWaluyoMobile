@@ -87,7 +87,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         dialogAlert = new DialogAlert();
-                        dialogAlert.alertValidation(RegistrationActivity.this, "Warning", "Anda Belum Memilih Klinik");
+                        dialogAlert.alertValidation(RegistrationActivity.this, "Peringatan", "Anda Belum Memilih Klinik");
                     }
                 });
 
@@ -96,7 +96,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         dialogAlert = new DialogAlert();
-                        dialogAlert.alertValidation(RegistrationActivity.this, "Warning", "Klinik tidak Ditemukan,mohon pilih ulang klinik");
+                        dialogAlert.alertValidation(RegistrationActivity.this, "Peringatan", "Klinik tidak Ditemukan,mohon pilih ulang klinik");
                     }
                 });
 
@@ -134,7 +134,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 public void run() {
 
                     dialogAlert = new DialogAlert();
-                    dialogAlert.alertValidation(RegistrationActivity.this, "Warning", deskripsiresponse);
+                    dialogAlert.alertValidation(RegistrationActivity.this, "Peringatan", deskripsiresponse);
 
                 }
             });
@@ -147,7 +147,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 public void run() {
 
                     dialogAlert = new DialogAlert();
-                    dialogAlert.alertValidation(RegistrationActivity.this, "Suksess", deskripsiresponse);
+                    dialogAlert.alertValidation(RegistrationActivity.this, "Sukses", deskripsiresponse);
 
                 }
             });

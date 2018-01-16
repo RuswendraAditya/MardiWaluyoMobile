@@ -37,7 +37,7 @@ public class RoomServices {
                 Integer numKosong = (jsonObject.getInt("KamarKosong"));
                 String kodeKelas = (jsonObject.getString("KodeKelKelas"));
                 String namaKelas = (jsonObject.getString("NamaKelas"));
-                Room room = new Room(kodeKelas, namaKelas, numKosong);
+                Room room = new Room(kodeKelas, namaKelas.trim(), numKosong);
                 Log.d("Kamar",kodeKelas);
                 roomList.add(room);
             }

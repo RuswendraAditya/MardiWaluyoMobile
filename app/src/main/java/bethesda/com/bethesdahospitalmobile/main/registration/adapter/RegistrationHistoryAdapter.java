@@ -2,6 +2,7 @@ package bethesda.com.bethesdahospitalmobile.main.registration.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +46,7 @@ public class RegistrationHistoryAdapter extends RecyclerView.Adapter<Registratio
         customViewHolder.txtNamaPasienHistory.setText("Nama: " + registrationResult.getNamaPasien());
         customViewHolder.txtTanggalHistory.setText("Tgl: " + DateUtil.changeFormatDate(registrationResult.getTglReg(),"dd/MM/yyyy","dd-MMM-yyyy"));
         customViewHolder.txtDokterHistory.setText("Dokter: " + registrationResult.getNamaDokter());
-
+        Log.d("tanggal his",registrationResult.getTglReg());
     }
 
     @Override

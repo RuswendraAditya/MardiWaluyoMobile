@@ -20,9 +20,9 @@ public class DialogAlert {
         new MaterialStyledDialog.Builder(context)
                 .setTitle(title)
                 .setDescription(message)
-                .withDialogAnimation(true)
                 .setPositiveText("OK")
                 .setIcon(R.drawable.logo_bethesda)
+                .withIconAnimation(false)
                 .onPositive(new MaterialDialog.SingleButtonCallback() {
                     @Override
                     public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {

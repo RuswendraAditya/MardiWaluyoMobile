@@ -111,7 +111,7 @@ public class DokterScheduleFragment extends Fragment {
                     @Override
                     public void run() {
                         DialogAlert dialogAlert = new DialogAlert();
-                        dialogAlert.alertValidation(getActivity(), "Warning", "Jadwal Tidak Ditemukan");
+                        dialogAlert.alertValidation(getActivity(), "Peringatan", "Jadwal Tidak Ditemukan");
                     }
                 });
 

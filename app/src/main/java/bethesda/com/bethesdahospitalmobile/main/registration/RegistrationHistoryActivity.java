@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
@@ -39,9 +40,10 @@ public class RegistrationHistoryActivity extends AppCompatActivity {
         deleteOldData();
         if (SharedData.getKey(RegistrationHistoryActivity.this, "noRM") == "") {
             DialogAlert dialogAlert = new DialogAlert();
-            dialogAlert.alertValidation(RegistrationHistoryActivity.this, "Warning", "Maaf tidak bisa menemukan no RM");
+            dialogAlert.alertValidation(RegistrationHistoryActivity.this, "Peringatan", "Maaf tidak bisa menemukan no RM");
         } else {
             registrationList = db.getRegisFromDBByNoRM(SharedData.getKey(RegistrationHistoryActivity.this, "noRM"));
+           // registrationList = db.getRegisFromDB();
             if (registrationList.size() == 0) {
                 txtNotif.setText("Tidak Ada Transaksi Pendaftaran Online Hari Ini");
                 txtNotif.setAnimation(AnimationUtils.loadAnimation(this, R.anim.blink));
@@ -60,6 +62,7 @@ public class RegistrationHistoryActivity extends AppCompatActivity {
 
     private void deleteOldData() {
         String date = DateUtil.getCurrentDateTime("dd/MM/yyyy");
+        Log.d("date today",date);
         db.deleteRegisNotToday(date);
 
     }
