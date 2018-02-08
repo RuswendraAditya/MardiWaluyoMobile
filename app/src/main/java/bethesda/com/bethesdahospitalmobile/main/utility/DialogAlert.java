@@ -19,6 +19,7 @@ public class DialogAlert {
     public void alertValidation(Context context, String title, String message) {
         new MaterialStyledDialog.Builder(context)
                 .setTitle(title)
+                .setCancelable(Boolean.FALSE)
                 .setDescription(message)
                 .setPositiveText("OK")
                 .setIcon(R.drawable.logo_bethesda)

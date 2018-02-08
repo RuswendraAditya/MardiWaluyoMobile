@@ -54,9 +54,16 @@ public class KlinikScheduleFragment extends Fragment {
     @OnClick(R.id.btnCariJadwalKlinik)
 
     public void btnCariJadwalKlinikClick(View view) {
-        KlinikScheduleTask klinikScheduleTask = new KlinikScheduleTask();
-        klinikScheduleTask.execute();
+        if (editTextKlinikSchedule.getText().toString().compareToIgnoreCase("") != 0) {
+            KlinikScheduleTask klinikScheduleTask = new KlinikScheduleTask();
+            klinikScheduleTask.execute();
+        } else {
+            DialogAlert dialogAlert = new DialogAlert();
+            dialogAlert.alertValidation(getActivity(), "Peringatan", "Anda Belum Memilih Klinik");
+        }
+
     }
+
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

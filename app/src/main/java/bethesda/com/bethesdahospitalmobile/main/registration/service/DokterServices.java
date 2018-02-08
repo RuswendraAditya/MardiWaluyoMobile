@@ -26,9 +26,11 @@ public class DokterServices {
     static OkHttpClient client = WebServicesUtil.connect();
     static String url = WebServicesUtil.getServiceUrl();
 
-    public static List<Dokter> getDokterByKlinik(String klinik) throws IOException {
+    public static List<Dokter> getDokterByKlinik(String klinik,String tgl) throws IOException {
         List<Dokter> dokterList = new ArrayList<>();
-        Request request = new Request.Builder().url(url + "/DokterKlinik/" + klinik).build();
+      //  Request request = new Request.Builder().url(url + "/DokterKlinik/" + klinik).build();
+        //change to dokter klink perjanjian
+        Request request = new Request.Builder().url(url + "/DokterKlinikJanji/?cKodeKlinik=" + klinik+"&dTanggal="+tgl).build();
         Response response = client.newCall(request).execute();
         String results = response.body().string();
         try {
@@ -40,7 +42,7 @@ public class DokterServices {
                 dokter.setNid(jsonObject.getString("NID"));
                 dokter.setNamaDokter(jsonObject.getString("NamaDokter"));
                 dokter.setPraktek(jsonObject.getString("praktek"));
-
+                dokter.setResponse(jsonObject.getString("response"));
                 dokterList.add(dokter);
             }
         } catch (JSONException jEx) {

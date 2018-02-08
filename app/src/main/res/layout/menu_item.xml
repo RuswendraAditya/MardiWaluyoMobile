@@ -9,7 +9,7 @@
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="208dp"
+        android:layout_height="182dp"
         card_view:cardCornerRadius="0dp"
         card_view:cardElevation="10dp"
         card_view:cardMaxElevation="10dp"
@@ -17,7 +17,7 @@
 
 
         <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
+            android:layout_width="342dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:orientation="vertical"
@@ -26,22 +26,22 @@
 
             <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/imageViewMenu"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
                 android:padding="5dp"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintLeft_toLeftOf="parent"
                 card_view:layout_constraintRight_toRightOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent"
-                card_view:layout_constraintVertical_bias="0.239" />
+                card_view:layout_constraintVertical_bias="0.15" />
 
 
             <android.support.v7.widget.AppCompatTextView
@@ -50,23 +50,23 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-condensed"
                 android:text="Test"
                 android:textAppearance="@style/TextAppearance.Design.Hint"
                 android:textColor="@color/bpBlue_focused"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:textStyle="bold"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintLeft_toLeftOf="parent"
                 card_view:layout_constraintRight_toRightOf="parent"
                 card_view:layout_constraintTop_toBottomOf="@+id/imageViewMenu"
-                card_view:layout_constraintVertical_bias="0.529" />
+                card_view:layout_constraintVertical_bias="0.312" />
 
 
         </android.support.constraint.ConstraintLayout>

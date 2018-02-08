@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,8 +21,19 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
+        android:adjustViewBounds="false"
         android:background="@android:color/white"
         android:src="@drawable/logo_bethesda" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Riwayat Pendaftaran Online"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="14sp"
+        app:fontFamily="sans-serif-condensed" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/txtNotif"
@@ -35,3 +53,4 @@
         android:scrollbars="vertical" />
 
 </LinearLayout>
+</ScrollView>

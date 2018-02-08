@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import bethesda.com.bethesdahospitalmobile.main.registration.model.Registration;
 import bethesda.com.bethesdahospitalmobile.main.registration.model.RegistrationResult;
+import bethesda.com.bethesdahospitalmobile.main.utility.DateUtil;
 import bethesda.com.bethesdahospitalmobile.main.utility.WebServicesUtil;
 import okhttp3.HttpUrl;
 import okhttp3.MediaType;
@@ -26,14 +27,14 @@ public class RegistrationServices {
     static String url = WebServicesUtil.getServiceUrl();
 
     public static RegistrationResult postRegistration(Registration registration) throws JSONException, IOException {
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(url + "/Pendaftaran/").newBuilder();
-        Log.d("Regis test", registration.getKodeDokter());
+       // HttpUrl.Builder urlBuilder = HttpUrl.parse(url + "/Pendaftaran/").newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(url + "/pendaftarantgl/").newBuilder();
         String url = urlBuilder.build().toString();
         JSONObject newRegistration = new JSONObject();
         newRegistration.put("norm", registration.getNoRM());
         newRegistration.put("kodeklinik", registration.getKodeKlinik());
         newRegistration.put("kodedokter", registration.getKodeDokter());
-
+        newRegistration.put("tglreg",registration.getTglReg());
         RequestBody body = RequestBody.create(MediaType.parse("application/json;charset=utf-8"),
                 newRegistration.toString());
         Request request = new Request.Builder()
@@ -46,7 +47,8 @@ public class RegistrationServices {
             JSONObject jsonObject = new JSONObject(result);
             if (!jsonObject.isNull("Norm")) {
                 Log.d("Regis", jsonObject.getString("Norm"));
-                registrationResult.setTglReg(jsonObject.getString("tglreg"));
+                String tgl_reg = DateUtil.changeFormatDate(jsonObject.getString("tglreg"),"dd/MM/yyyy","dd/MM/yyyy");
+                registrationResult.setTglReg(tgl_reg);
                 registrationResult.setJamReg(jsonObject.getString("jamReg"));
                 registrationResult.setNoRm(jsonObject.getString("Norm"));
                 registrationResult.setNamaPasien(jsonObject.getString("namapasien"));

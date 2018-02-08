@@ -6,7 +6,10 @@
     <string name="title_activity_scheduler_picker">Jadwal Pelayanan</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_schedule">ScheduleActivity</string>
+    <string name="title_activity_schedule">Schedule Activity</string>
+    <string name="gpvch_header">Versi Baru Tersedia, Anda Wajib Update</string>
+    <string name="gpvch_button_positive">Update Now</string>
+    <string name="gpvch_new_version_info_title">Whats new:</string>
 </resources>
 
 

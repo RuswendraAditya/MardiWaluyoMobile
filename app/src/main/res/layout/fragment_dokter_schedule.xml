@@ -74,13 +74,14 @@
 
         <EditText
             android:id="@+id/editTextDokterSchedule"
-            android:layout_width="278dp"
+            android:layout_width="340dp"
             android:layout_height="match_parent"
+            android:editable="false"
             android:hint="Pilih Nama Dokter"
             android:inputType="none"
-            android:editable="false"
+            android:singleLine="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textSize="14sp" />
+            android:textSize="13sp" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.v7.widget.RecyclerView

@@ -2,8 +2,10 @@ package bethesda.com.bethesdahospitalmobile.main.registration;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -11,15 +13,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
+
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import bethesda.com.bethesdahospitalmobile.R;
 import bethesda.com.bethesdahospitalmobile.main.registration.model.Registration;
 import bethesda.com.bethesdahospitalmobile.main.registration.model.RegistrationResult;
 import bethesda.com.bethesdahospitalmobile.main.registration.service.RegistrationServices;
 import bethesda.com.bethesdahospitalmobile.main.utility.DatabaseHandler;
+import bethesda.com.bethesdahospitalmobile.main.utility.DateUtil;
 import bethesda.com.bethesdahospitalmobile.main.utility.DialogAlert;
 import bethesda.com.bethesdahospitalmobile.main.utility.NetworkStatus;
 import bethesda.com.bethesdahospitalmobile.main.utility.SharedData;
@@ -27,7 +38,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class RegistrationActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private DialogAlert dialogAlert;
     @BindView(R.id.txtNoRM)
     TextView txtNoRM;
@@ -37,6 +48,8 @@ public class RegistrationActivity extends AppCompatActivity {
     TextView txtTglLahir;
     @BindView(R.id.txtAlamat)
     TextView txtAlamat;
+    @BindView(R.id.editdatepicker)
+    EditText editdatepicker;
     @BindView(R.id.editklinikpicker)
     EditText editklinikpicker;
     @BindView(R.id.editDokPicker)
@@ -47,6 +60,7 @@ public class RegistrationActivity extends AppCompatActivity {
     public static final int REQUEST_CODE_DOKTER = 2;
     private String kodeKlinik = null;
     private String namaKlinik = null;
+    private String tgl_regis =  null;
     private String nidDokter = null;
     private String namaDokter = null;
     private DatabaseHandler db;
@@ -55,8 +69,66 @@ public class RegistrationActivity extends AppCompatActivity {
     @OnClick(R.id.btnRegistration)
     public void editbtnRegistrationClick(View view) {
         if (networkStatus.isOnline(RegistrationActivity.this)) {
-            RegistrationTask registrationTask = new RegistrationTask();
-            registrationTask.execute();
+            if (editdatepicker.length() <= 0) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialogAlert = new DialogAlert();
+                        dialogAlert.alertValidation(RegistrationActivity.this, "Peringatan", "Anda Belum Memilih Tanggal Periksa");
+                    }
+                });
+
+            }
+            else if (editklinikpicker.length() <= 0) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialogAlert = new DialogAlert();
+                        dialogAlert.alertValidation(RegistrationActivity.this, "Peringatan", "Anda Belum Memilih Klinik Tujuan");
+                    }
+                });
+
+            }
+            else if (editDokPicker.length() <= 0) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialogAlert = new DialogAlert();
+                        dialogAlert.alertValidation(RegistrationActivity.this, "Peringatan", "Anda Belum Memilih Dokter Klinik");
+                    }
+                });
+
+            }
+            else
+            {
+                new MaterialStyledDialog.Builder(RegistrationActivity.this)
+                        .setTitle("Konfirmasi")
+                        .setDescription("Apakah Anda Yakin Mendaftar Pada Tgl: "+editdatepicker.getText().toString().trim() +
+                                ",Klinik:"+ editklinikpicker.getText().toString().trim()+", Dokter:"+editDokPicker.getText().toString().trim())
+                        .setIcon(R.drawable.logo_bethesda)
+                        .withIconAnimation(false)
+                        .setCancelable(Boolean.FALSE)
+                        .setNegativeText("Cancel")
+                        .onNegative(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setPositiveText("Yes")
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                RegistrationTask registrationTask = new RegistrationTask();
+                                registrationTask.execute();
+                            }
+                        })
+                        .show();
+
+              //  RegistrationTask registrationTask = new RegistrationTask();
+               // registrationTask.execute();
+            }
+
         } else {
             Toast.makeText(RegistrationActivity.this, "Koneksi Internet Tidak Ditemukan,Mohon Coba Kembali", Toast.LENGTH_LONG).show();
 
@@ -65,13 +137,54 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
+    @OnClick(R.id.editdatepicker)
+    public void editdatepickerClick(View view) {
+        editdatepicker.setText("");
+       // editklinikpicker.setText("");
+        editDokPicker.setText("");
+        String now_string = SharedData.getKey(RegistrationActivity.this, "currentDate");
+        Date current_date = DateUtil.FormatStringToDate(now_string,"dd/MM/yyyy");
+        Calendar cal_min = Calendar.getInstance();
+        cal_min.setTime(current_date);
+        DatePickerDialog dpd = DatePickerDialog.newInstance(
+                RegistrationActivity.this,
+                cal_min.get(Calendar.YEAR),
+                cal_min.get(Calendar.MONTH),
+                cal_min.get(Calendar.DAY_OF_MONTH)
+        );
+        dpd.setVersion(DatePickerDialog.Version.VERSION_2);
+        dpd.setAccentColor(Color.rgb(41, 182, 246));
+        dpd.setMinDate(cal_min);
+        Calendar cal_max = Calendar.getInstance();
+        cal_max.setTime(current_date);
+        cal_max.add(Calendar.DATE, DateUtil.getMaxDaysRegis()-1);
+        dpd.setMaxDate(cal_max);
+        Locale local_indonesia = new Locale("id", "ID");
+        dpd.setLocale(local_indonesia);
+        dpd.show(getFragmentManager(), "Datepickerdialog");
+    }
+
     @OnClick(R.id.editklinikpicker)
     public void editklinikpickerClick(View view) {
         if (networkStatus.isOnline(RegistrationActivity.this)) {
             editklinikpicker.setText("");
             editDokPicker.setText("");
-            Intent intent = new Intent(RegistrationActivity.this, KlinikPickerActivity.class);
-            startActivityForResult(intent, REQUEST_CODE_KLINIK);
+            if (editdatepicker.length() <= 0) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialogAlert = new DialogAlert();
+                        dialogAlert.alertValidation(RegistrationActivity.this, "Peringatan", "Anda Belum Memilih Tanggal Periksa");
+                    }
+                });
+
+            } else
+            {
+                Intent intent = new Intent(RegistrationActivity.this, KlinikPickerActivity.class);
+                startActivityForResult(intent, REQUEST_CODE_KLINIK);
+            }
+
+
         } else {
             Toast.makeText(RegistrationActivity.this, "Koneksi Internet Tidak Ditemukan Saat mengambil data Klinik,Mohon Coba Kembali", Toast.LENGTH_LONG).show();
 
@@ -79,19 +192,32 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
+
+
     @OnClick(R.id.editDokPicker)
-    public void editDokPickerrClick(View view) {
+    public void editDokPickerClick(View view) {
         if (networkStatus.isOnline(RegistrationActivity.this)) {
-            if (editklinikpicker.length() <= 0) {
+            if (editdatepicker.length() <= 0) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         dialogAlert = new DialogAlert();
-                        dialogAlert.alertValidation(RegistrationActivity.this, "Peringatan", "Anda Belum Memilih Klinik");
+                        dialogAlert.alertValidation(RegistrationActivity.this, "Peringatan", "Anda Belum Memilih Tanggal Periksa");
                     }
                 });
 
-            } else if (kodeKlinik.length() <= 0 || kodeKlinik.equals(null)) {
+            }
+            else if (editklinikpicker.length() <= 0) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialogAlert = new DialogAlert();
+                        dialogAlert.alertValidation(RegistrationActivity.this, "Peringatan", "Anda Belum Memilih Klinik Tujuan");
+                    }
+                });
+
+            }
+            else if (kodeKlinik.length() <= 0 || kodeKlinik.equals(null)) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -102,6 +228,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
             } else {
                 Intent intent = new Intent(RegistrationActivity.this, DokterPickerActivity.class);
+                intent.putExtra("tgl_regis",tgl_regis);
                 intent.putExtra("kodeKlinik", kodeKlinik);
                 intent.putExtra("kodeDokter", "");
                 startActivityForResult(intent, REQUEST_CODE_DOKTER);
@@ -119,6 +246,7 @@ public class RegistrationActivity extends AppCompatActivity {
         RegistrationResult registrationResult = new RegistrationResult();
         registration.setKodeDokter(nidDokter);
         registration.setKodeKlinik(kodeKlinik);
+        registration.setTglReg(tgl_regis);
         registration.setNoRM(SharedData.getKey(RegistrationActivity.this, "noRM"));
         try {
             registrationResult = RegistrationServices.postRegistration(registration);
@@ -189,6 +317,13 @@ public class RegistrationActivity extends AppCompatActivity {
                 editDokPicker.setText(namaDokter);
             }
         }
+    }
+
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+        String date_selected =(monthOfYear+1)+"/"+ dayOfMonth+"/"+year;
+        editdatepicker.setText(  DateUtil.changeFormatDate(date_selected,"MM/dd/yyyy","dd-MMM-yyyy"));
+        tgl_regis =  DateUtil.changeFormatDate(date_selected,"MM/dd/yyyy","MM/dd/yyyy");
     }
 
     private class RegistrationTask extends AsyncTask<Void, Void, Void> {

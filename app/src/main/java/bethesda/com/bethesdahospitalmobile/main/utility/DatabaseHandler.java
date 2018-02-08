@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -212,9 +213,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public List<RegistrationResult> getRegisFromDBByNoRM(String noRM) {
         List<RegistrationResult> regisList = new ArrayList<>();
-        String strSql = "select * from " + REGIS_TABLE_NAME + " WHERE " + REGIS_NO_RM + "=?";
+        String order_string = "order by date(substr("+REGIS_TGL+", 7, 4) || '-' || substr("+REGIS_TGL+", 4, 2) || '-' " +
+                "|| substr("+REGIS_TGL+", 1, 2)) asc";
+        String strSql = "select * from " + REGIS_TABLE_NAME + " WHERE " + REGIS_NO_RM + "=? "+order_string;
+        //String strSql = "select * from Registrasi" ;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(strSql, new String[]{noRM});
+        //Cursor cursor = db.rawQuery(strSql,null);
+        Log.d("total", String.valueOf(cursor.getCount()));
         if (cursor.moveToFirst()) {
             do {
                 RegistrationResult result = new RegistrationResult();
@@ -237,7 +243,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public void deleteRegisNotToday(String date) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(REGIS_TABLE_NAME, REGIS_TGL + "< ?",
+        String where_delete = "date(substr("+REGIS_TGL+", 7, 4) || '-' || substr("+REGIS_TGL+", 4, 2) || '-' || substr("+REGIS_TGL+", 1, 2))";
+        db.delete(REGIS_TABLE_NAME, where_delete + "< ?",
                 new String[]{String.valueOf(date)});
         db.close();
     }

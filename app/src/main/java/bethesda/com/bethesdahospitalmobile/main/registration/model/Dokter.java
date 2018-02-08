@@ -10,6 +10,7 @@ public class Dokter {
     private String namaDokter;
     private String hari_ini;
     private String praktek;
+    private String response;
 
     public int getMax() {
         return max;
@@ -50,6 +51,12 @@ public class Dokter {
     public void setPraktek(String praktek) {
         this.praktek = praktek;
     }
+    public String getResponse() {
+        return response;
+    }
 
+    public void setResponse(String response) {
+        this.response = response;
+    }
 
 }

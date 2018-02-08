@@ -132,7 +132,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
         TextView text = (TextView) view.findViewById(R.id.tab_text);
         text.setText(tabNames[position]);
-        text.setTextColor(setTextselector(Color.parseColor("#F2F2F2"), Color.parseColor("#FFFFFF")));
+        text.setTextColor(setTextselector(Color.parseColor("#F2F2F2"), Color.parseColor("#23cec5")));
 
 
         return view;

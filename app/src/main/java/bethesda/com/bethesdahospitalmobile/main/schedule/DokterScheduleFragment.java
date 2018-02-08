@@ -54,8 +54,15 @@ public class DokterScheduleFragment extends Fragment {
 
     @OnClick(R.id.btnCariJadwalDokter)
     public void btnCariJadwalDokterClick(View view) {
-        DokterSchduleTask dokterSchduleTask = new DokterSchduleTask();
-        dokterSchduleTask.execute();
+        if (editTextDokterSchedule.getText().toString().compareToIgnoreCase("") != 0) {
+            DokterSchduleTask dokterSchduleTask = new DokterSchduleTask();
+            dokterSchduleTask.execute();
+
+        } else {
+            DialogAlert dialogAlert = new DialogAlert();
+            dialogAlert.alertValidation(getActivity(), "Peringatan", "Anda Belum Memilih Dokter");
+        }
+
     }
 
 

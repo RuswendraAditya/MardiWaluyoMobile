@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BethesdaMobile.iml" filepath="$PROJECT_DIR$/BethesdaMobile.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gpversionchecker/gpversionchecker.iml" filepath="$PROJECT_DIR$/gpversionchecker/gpversionchecker.iml" />
     </modules>
   </component>
 </project>

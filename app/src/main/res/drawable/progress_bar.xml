@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="5dip" />
+            <gradient
+                android:startColor="@color/mdtp_light_gray"
+                android:centerColor="@color/mdtp_light_gray"
+                android:endColor="@color/mdtp_light_gray"
+                />
+        </shape>
+    </item>
+
+
+    <item
+        android:id="@android:id/progress"
+        >
+        <clip>
+            <shape>
+                <corners
+                    android:radius="5dip" />
+                <gradient
+                    android:startColor="@color/Light_green_custom"
+                    android:endColor="@color/Light_green_custom" />
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>

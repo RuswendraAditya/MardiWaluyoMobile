@@ -9,25 +9,45 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_logo_bethesda"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
         android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_logo_bethesda"
+        android:supportsRtl="true"
         android:theme="@style/BethesdaTheme">
-        <activity android:name=".main.main.IntroActivity">
+        <activity
+            android:name=".main.main.IntroActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.login.LoginActivity" />
-        <activity android:name=".main.main.MainMenuActivity" />
-        <activity android:name=".main.registration.KlinikPickerActivity" />
-        <activity android:name=".main.registration.RegistrationActivity" />
-        <activity android:name=".main.registration.DokterPickerActivity" />
-        <activity android:name=".main.registration.RegistrationHistoryActivity" />
-        <activity android:name=".main.schedule.ScheduleActivity" />
-        <activity android:name=".main.room.EmptyRoomActivity"></activity>
+        <activity
+            android:name=".main.login.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".main.main.MainMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".main.registration.KlinikPickerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".main.registration.RegistrationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".main.registration.DokterPickerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".main.registration.RegistrationHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".main.schedule.ScheduleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".main.room.EmptyRoomActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".main.registration.CalendarPicker" />
+        <activity android:name=".main.info.JamBesukActivity"></activity>
     </application>
 
 </manifest>

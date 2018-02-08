@@ -11,13 +11,16 @@ import okhttp3.OkHttpClient;
 public class WebServicesUtil {
 
     public static String getServiceUrl() {
-        final String SERVICE_URL = "http://180.214.244.190:8090/API/";
+        //release version
+       final String SERVICE_URL = "http://180.214.244.190:8090/API/";
+        //testing version
+        //final String SERVICE_URL = "http://180.214.244.190:8010/API/";
         return SERVICE_URL;
     }
 
     public String getData()
     {
-        return "test";
+        return "test123";
     }
     public static OkHttpClient connect() {
 

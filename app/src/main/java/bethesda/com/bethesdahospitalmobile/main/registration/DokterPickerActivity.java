@@ -38,6 +38,7 @@ public class DokterPickerActivity extends AppCompatActivity {
     DokterListAdapter adapter;
     String kodeKlinik = "";
     String kodeDokter = "";
+    String tgl_regis = "";
 
     @OnItemClick(R.id.listDokter)
     public void onItemClick(AdapterView<?> parent,
@@ -54,7 +55,7 @@ public class DokterPickerActivity extends AppCompatActivity {
         Intent intent = new Intent();
         if (!dokter.getPraktek().isEmpty()&& dokter.getPraktek().equals("false")) {
             DialogAlert dialogAlert = new DialogAlert();
-            dialogAlert.alertValidation(DokterPickerActivity.this, "Peringatan", "Dokter Sedang Tidak Praktek Hari Ini");
+            dialogAlert.alertValidation(DokterPickerActivity.this, "Peringatan", dokter.getResponse());
         } else {
             intent.putExtra("nidDokter", dokter.getNid());
             intent.putExtra("namaDokter", dokter.getNamaDokter());
@@ -71,6 +72,7 @@ public class DokterPickerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dokter_picker);
         ButterKnife.bind(this);
         db = new DatabaseHandler(this);
+        tgl_regis = getIntent().getStringExtra("tgl_regis");
         kodeKlinik = getIntent().getStringExtra("kodeKlinik");
         kodeDokter = getIntent().getStringExtra("kodeDokter");
         if (!kodeKlinik.equals("") || !kodeDokter.equals("")) {
@@ -153,7 +155,7 @@ public class DokterPickerActivity extends AppCompatActivity {
 
     private void getDokterKlinik() {
         try {
-            dokterList = DokterServices.getDokterByKlinik(kodeKlinik);
+            dokterList = DokterServices.getDokterByKlinik(kodeKlinik,tgl_regis);
             for (Dokter dokter : dokterList) {
                 Log.d("Dokter List", dokter.getNamaDokter());
             }
@@ -162,7 +164,7 @@ public class DokterPickerActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     DialogAlert dialogAlert = new DialogAlert();
-                    dialogAlert.alertValidation(DokterPickerActivity.this, "Peringatan", "Mohon Maaf tidak Mendaptkan Data Dokter, mohon dicoba kembali");
+                    dialogAlert.alertValidation(DokterPickerActivity.this, "Peringatan", "Mohon Maaf tidak Mendapatkan Data Dokter, mohon dicoba kembali");
                 }
             });
         }
@@ -181,7 +183,7 @@ public class DokterPickerActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     DialogAlert dialogAlert = new DialogAlert();
-                    dialogAlert.alertValidation(DokterPickerActivity.this, "Peringatan", "Mohon Maaf tidak Mendaptkan Data Dokter, mohon dicoba kembali");
+                    dialogAlert.alertValidation(DokterPickerActivity.this, "Peringatan", "Mohon Maaf tidak Mendapatkan Data Dokter, mohon dicoba kembali");
                 }
             });
         }

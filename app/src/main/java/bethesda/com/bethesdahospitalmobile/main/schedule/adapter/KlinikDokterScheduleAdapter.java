@@ -25,9 +25,12 @@ public class KlinikDokterScheduleAdapter extends RecyclerView.Adapter<KlinikDokt
         this.mContext = context;
     }
 
+
+
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.klinik_schedule_list, null);
+
         CustomViewHolder viewHolder = new CustomViewHolder(view);
         return viewHolder;
     }

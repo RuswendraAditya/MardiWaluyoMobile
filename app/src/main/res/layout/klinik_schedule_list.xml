@@ -34,8 +34,8 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="Dokter:TEST"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textSize="14sp" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/txtHariKlinik"
@@ -44,7 +44,8 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/txtDokterJadwalKlinik"
                 android:text="Hari : Senin"
-                android:textSize="12sp" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textSize="14sp" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/txtJamKlinik"
@@ -53,6 +54,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/txtHariKlinik"
                 android:text="Jam : 09.00-13.00"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textSize="12sp" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>

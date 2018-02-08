@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#303f9f</color>
     <color name="colorAccent">#ff4081</color>
     <color name="bpBlue_focused">#83bbd1</color>
-    <color name="bpDarker_red">#c92d2d</color>
+    <color name="bpDarker_red">#975656</color>
     <color name="Light_green_custom">#c5e1a5</color>
+
 </resources>

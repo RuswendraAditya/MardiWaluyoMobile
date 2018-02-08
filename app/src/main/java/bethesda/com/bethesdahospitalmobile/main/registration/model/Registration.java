@@ -10,6 +10,7 @@ public class Registration {
     private String kodeKlinik;
     private String kodeDokter;
 
+    private String tglReg;
     public String getNoRM() {
         return noRM;
     }
@@ -32,6 +33,14 @@ public class Registration {
 
     public void setKodeDokter(String kodeDokter) {
         this.kodeDokter = kodeDokter;
+    }
+
+    public String getTglReg() {
+        return tglReg;
+    }
+
+    public void setTglReg(String tglReg) {
+        this.tglReg = tglReg;
     }
 
 }

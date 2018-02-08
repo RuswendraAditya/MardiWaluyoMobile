@@ -35,7 +35,7 @@ public class DokterScheduleAdapter extends RecyclerView.Adapter<DokterScheduleAd
     @Override
     public void onBindViewHolder(CustomViewHolder customViewHolder, int i) {
         DokterKlinikSchedule dokterKlinikSchedule = dokterKlinikSchedules.get(i);
-        customViewHolder.txtDokterJadwal.setText("");
+//        customViewHolder.txtDokterJadwal.setText("");
         customViewHolder.txtKlinikDokter.setText("Klinik: " + dokterKlinikSchedule.getNamaKlinik());
         customViewHolder.txtHariDokter.setText("Hari: "+dokterKlinikSchedule.getHari());
         customViewHolder.txtJamDokter.setText("Jam: "+ dokterKlinikSchedule.getJam_dari() + " - " + dokterKlinikSchedule.getJam_selesai());
@@ -48,7 +48,7 @@ public class DokterScheduleAdapter extends RecyclerView.Adapter<DokterScheduleAd
 
     class CustomViewHolder extends RecyclerView.ViewHolder {
 
-        protected TextView txtDokterJadwal;
+     //   protected TextView txtDokterJadwal;
         protected TextView txtKlinikDokter;
         protected TextView txtHariDokter;
         protected TextView txtJamDokter;
@@ -56,7 +56,7 @@ public class DokterScheduleAdapter extends RecyclerView.Adapter<DokterScheduleAd
 
         public CustomViewHolder(View view) {
             super(view);
-            this.txtDokterJadwal = (TextView) view.findViewById(R.id.txtDokterJadwal);
+         //   this.txtDokterJadwal = (TextView) view.findViewById(R.id.txtDokterJadwal);
             this.txtKlinikDokter = (TextView) view.findViewById(R.id.txtKlinikDokter);
             this.txtHariDokter = (TextView) view.findViewById(R.id.txtHariDokter);
             this.txtJamDokter = (TextView) view.findViewById(R.id.txtJamDokter);
