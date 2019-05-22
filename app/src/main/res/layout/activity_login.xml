@@ -13,7 +13,7 @@
         android:paddingRight="24dp"
         android:weightSum="1">
 
-        <ImageView android:src="@drawable/logo_bethesda"
+        <ImageView android:src="@drawable/logo_rsmw"
             android:layout_width="wrap_content"
             android:layout_height="72dp"
             android:layout_marginBottom="24dp"
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
-                android:hint="No RM"
+                android:hint="No RM (8 Digit)"
                 android:inputType="number"
                 android:textColorHighlight="@android:color/black"
                 android:textColorHint="@color/md_divider_black"
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
                 android:hint="Tgl Lahir (ddmmyyyy)"
-                android:inputType="textPassword"
+                android:inputType="numberPassword"
                 android:textColorHighlight="@android:color/black"
                 android:textColorLink="@color/md_divider_black" />
         </android.support.design.widget.TextInputLayout>
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:layout_marginTop="24dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/mdtp_button_color"
             android:padding="12dp"
             android:text="Login"
             android:textColor="@color/cardview_light_background"

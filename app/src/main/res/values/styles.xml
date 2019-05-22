@@ -7,16 +7,16 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name="BethesdaTheme" parent="AppTheme">
+    <style name="MardiWaluyoTheme" parent="AppTheme">
 
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:colorBackground">@android:color/background_light</item>
-        <item name="colorPrimary">@color/md_material_blue_800</item>
+        <item name="android:colorBackground">@color/backgrund_color</item>
+        <item name="colorPrimary">@color/pink_tua</item>
         <item name="colorPrimaryDark">@color/Light_green_custom</item>`
-        <item name="colorAccent">@color/md_material_blue_800</item>
+        <item name="colorAccent">@color/pink_tua</item>
     </style>
     <style name="Widget.CardContent" parent="android:Widget">
         <item name="android:paddingLeft">12dp</item>

@@ -22,8 +22,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
         android:adjustViewBounds="false"
-        android:background="@android:color/white"
-        android:src="@drawable/logo_bethesda" />
+        android:src="@drawable/logo_rsmw" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/textView6"
@@ -33,7 +32,8 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textSize="14sp"
-        app:fontFamily="sans-serif-condensed" />
+        android:textColor="@color/pink_tua"
+        app:fontFamily="serif" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/txtNotif"

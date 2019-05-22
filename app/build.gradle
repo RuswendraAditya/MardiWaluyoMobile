@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '27.0.3'
     defaultConfig {
-        applicationId "com.bethesda.bethesdahospitalmobile"
+        applicationId "com.mardiwaluyo.mardiwaluyomobile"
         minSdkVersion 18
-        targetSdkVersion 25
-        versionCode 4 //asline 2 kok
-        versionName "1.3" //asline 1.1.
+        targetSdkVersion 26
+        versionCode 3//asline 2 kok
+        versionName "1.2" //asline 1.1.
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -40,6 +40,7 @@ dependencies {
     compile 'com.github.javiersantos:MaterialStyledDialogs:2.1'
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
     compile 'com.jakewharton:butterknife:8.8.1'
+    compile 'com.github.myinnos:ImageSliderWithSwipes:1.0.2'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

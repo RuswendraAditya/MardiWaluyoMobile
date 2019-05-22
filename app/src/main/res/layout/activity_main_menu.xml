@@ -21,8 +21,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:background="@android:color/white"
-        android:src="@drawable/logo_bethesda" />
+        android:src="@drawable/logo_rsmw" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/txtVersionMainMenu"

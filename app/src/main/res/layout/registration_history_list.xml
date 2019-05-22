@@ -45,7 +45,7 @@
                 card_view:layout_constraintRight_toLeftOf="@+id/txtAntrianHistory"
                 card_view:layout_constraintTop_toBottomOf="@+id/txtKlinikHistory" />
 
-            <bethesda.com.bethesdahospitalmobile.main.utility.CircularTextView
+            <mardiwaluyo.com.mardiwaluyomobile.main.utility.CircularTextView
                 android:id="@+id/txtAntrianHistory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="serif"
                 android:gravity="center"
                 android:padding="3dp"
                 android:text="11"

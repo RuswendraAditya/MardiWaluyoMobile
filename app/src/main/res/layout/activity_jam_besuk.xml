@@ -21,92 +21,74 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:adjustViewBounds="false"
-            android:background="@android:color/white"
-            android:src="@drawable/logo_bethesda" />
+            android:src="@drawable/logo_rsmw" />
+
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Jam Besuk RS Bethesda"
+            android:layout_marginBottom="30dp"
+            android:text="Jam Besuk RS Mardi Waluyo"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/pink_tua"
             android:textSize="16sp"
-            android:layout_marginBottom="30dp"
-            app:fontFamily="sans-serif-condensed" />
+            app:fontFamily="serif" />
 
         <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
+            android:id="@+id/textViewJam"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:text="  1.Jam Besuk Sabtu, Minggu, Libur Nasional"
-            android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
-            android:textColor="@color/md_material_blue_800"
             android:layout_marginBottom="5dp"
-            android:textSize="13sp"
-            android:textStyle="bold" />
+            android:fontFamily="serif"
+            android:text="   Jam Besuk : "
+            android:textAlignment="textStart"
+            android:textSize="18sp"
+            app:fontFamily="serif" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/textView16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:text="     *Pagi : 10.00 -12.00 Wib"
             android:layout_marginBottom="5dp"
+            android:fontFamily="serif"
+            android:text="     *Pagi : 10.00 -12.00 Wib"
             android:textAlignment="textStart"
-            android:textSize="13sp" />
+            android:textSize="18sp"
+            app:fontFamily="serif" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/textView17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:text="     *Sore : 16.00 -19.00 Wib"
-            android:textAlignment="textStart"
             android:layout_marginBottom="20dp"
-            android:textSize="13sp" />
-
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/textView18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:text="  2.Jam Besuk Kecuali Sabtu, Minggu, Libur Nasional"
-            android:layout_marginBottom="5dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
-            android:textColor="@color/md_material_blue_800"
-            android:textSize="13sp"
-            android:textStyle="bold" />
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/textView19"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
+            android:fontFamily="serif"
             android:text="     *Sore : 16.00 -19.00 Wib"
             android:textAlignment="textStart"
-            android:layout_marginBottom="30dp"
-            android:textSize="13sp" />
+            android:textSize="18sp"
+            app:fontFamily="serif" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/textView20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:text="Himbauan/Larangan"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
             android:textColor="@color/md_edittext_error"
             android:textSize="12sp"
             android:textStyle="bold"
-            android:layout_marginBottom="10dp"
-            app:fontFamily="sans-serif-condensed" />
+            app:fontFamily="serif" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/textView21"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Anak dibawah usia 12 thn dilarang masuk ke area perawatan pasien"
+            android:fontFamily="serif"
+            android:text="Anak-Anak dibawah usia 12 tahun dilarang Masuk ke area perawatan pasien"
             android:textAlignment="center"
+            android:textColor="@color/pink_tua"
             android:textSize="11sp"
             android:textStyle="bold"
             android:typeface="normal" />

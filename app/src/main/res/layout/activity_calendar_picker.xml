@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bethesda.com.bethesdahospitalmobile.main.registration.CalendarPicker">
+    tools:context="mardiwaluyo.com.mardiwaluyomobile.main.registration.CalendarPicker">
 
 
     <android.support.design.widget.TextInputLayout

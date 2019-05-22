@@ -9,7 +9,7 @@
         android:id="@+id/dokter_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
+        android:fontFamily="serif"
         android:padding="10dip"
         android:text="Test"
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
