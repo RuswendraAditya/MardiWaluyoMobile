@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="gpvch_app_icon_margin">5dp</dimen>
+    <dimen name="gpvch_tv_version_code_margin_left">5dp</dimen>
+    <dimen name="gpvch_tv_version_code_margin_right">5dp</dimen>
+    <dimen name="gpvch_tv_version_code_margin_top">5dp</dimen>
+    <dimen name="gpvch_tv_header_whats_new">5dp</dimen>
+</resources>

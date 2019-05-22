@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.github.florent37.expansionpanel.ExpansionHeader
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/sampleHeader"
+        app:expansion_headerIndicator="@id/headerIndicator"
+        app:expansion_layout="@id/expansionLayout"
+        app:expansion_toggleOnClick="true">
+
+        <RelativeLayout
+            android:background="@android:color/white"
+            android:layout_height="48dp"
+            android:layout_width="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Poliklinik VVIP"
+                android:textColor="#3E3E3E" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:adjustViewBounds="true"
+                android:id="@+id/headerIndicator"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
+
+        </RelativeLayout>
+
+    </com.github.florent37.expansionpanel.ExpansionHeader>
+
+    <com.github.florent37.expansionpanel.ExpansionLayout
+        android:id="@+id/expansionLayout"
+        app:expansion_expanded="false"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:background="#fdfeff"
+                android:textColor="#000000"
+                android:textAlignment="textStart"
+                android:layout_height="250dp"
+                android:layout_width="match_parent"
+                android:text="Klinik VVIP adalah klinik khusus yang melayani pasien regular NON BPJS oleh dr spesialis dan subspesialis dengan fasilitas VVIP dan pelayanan farmasi serta  pembayaran di tempat (Bank BRI) , sehingga obat sekalian  di berikan dan pembayaran bisa langsung ditempat.
+\n\nJam Pelayanan		: Jam 08.30 – 15.00
+\nCakupan Pelayanan	: Spesialis Penyakit Dalam, Spesialis Saraf, Spesialis Bedah Onkologi, Spesialis THT, Spesialis Paru, Spesialis Gigi.
+\nTempat pelayanan 	: Gedung Poliklinik Lantai III Sayap Timur/ WHC.\n
+" />
+
+        </LinearLayout>
+
+    </com.github.florent37.expansionpanel.ExpansionLayout>
+</LinearLayout>

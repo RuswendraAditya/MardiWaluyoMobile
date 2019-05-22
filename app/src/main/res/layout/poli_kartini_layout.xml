@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.github.florent37.expansionpanel.ExpansionHeader
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/sampleHeader"
+        app:expansion_headerIndicator="@id/headerIndicator"
+        app:expansion_layout="@id/expansionLayout"
+        app:expansion_toggleOnClick="true">
+
+        <RelativeLayout
+            android:background="@android:color/white"
+            android:layout_height="48dp"
+            android:layout_width="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Poliklinik Kartini 1 Dan 2"
+                android:textColor="#3E3E3E" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:adjustViewBounds="true"
+                android:id="@+id/headerIndicator"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
+
+        </RelativeLayout>
+
+    </com.github.florent37.expansionpanel.ExpansionHeader>
+
+    <com.github.florent37.expansionpanel.ExpansionLayout
+        android:id="@+id/expansionLayout"
+        app:expansion_expanded="false"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:background="#fdfeff"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:layout_height="300dp"
+                android:layout_width="match_parent"
+                android:textAlignment="textStart"
+                android:text="Pada dasarnya kedua klinik tersebut sama, hanya berbeda ruangan/ tempat. Klinik kartini merupakan klinik dokter spesialis yang melayani pasien non BPJS, dan pasien BPJS dokter spesialis tertentu (dr. RM Aryono, Sp.PD., Sp.JP(K), dr. Ibnu Purwanto, Sp.PD., dr. Sri Mulatsih, Sp. A, dr. Agus Sudibyo, Sp.U, dr.Nur Budiyono, Sp.U,dr. Yulius Candra Adipurwadi, Sp.BA, dr. Tedjo Rukmoyo, Sp.OT,Spine (K), dr. Timbang M. Simanjuntak, Sp.B., drdr. Bernita, Sp.KFR., dr. Muhammad Bayu Sasongko, Sp.M, serta untuk tindakan Treatmill (oleh Dokter Spesialis Kardiologi).
+                 \n\nJam Pelayanan		: Jam 07.00 – 21.00 WIB \nCakupan pelayanan 	: Semua dokter spesialis kecuali Spesialis Gigi, Spesialis Kulit.\nTempat Pelayanan	: Gedung Poliklinik Lantai II Sayap Selatan (Klinik Kartini I dan Klinik Kartini II)" />
+
+        </LinearLayout>
+
+    </com.github.florent37.expansionpanel.ExpansionLayout>
+</LinearLayout>

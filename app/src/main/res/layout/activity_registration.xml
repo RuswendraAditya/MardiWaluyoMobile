@@ -1,0 +1,439 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="mardiwaluyo.com.mardiwaluyomobile.main.registration.RegistrationActivity">
+
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="8dp"
+                android:weightSum="1">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/imageViewRegis"
+                    android:layout_width="40dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
+                    android:adjustViewBounds="false"
+                    android:src="@drawable/logo_rsmw" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="serif"
+                    android:textColor="@color/pink_tua"
+                    android:text="Pendaftaran Online RS Mardi Waluyo"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textSize="14sp" />
+
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="  * Pasien Tanggungan Instansi/BPJS saat datang, mhn konfirmasi ke petugas pendaftaran"
+                    android:textColor="@color/md_material_blue_600"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/textViewinFo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="  * Pendaftaran Maksimal X Hari"
+                    android:textColor="@color/md_material_blue_600"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_margin="16dp">
+
+                    <LinearLayout
+                        style="@style/Widget.CardContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Informasi Pasien"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:textColor="@color/pink_tua"
+                            android:textSize="14sp" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/textView10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:layout_weight="1"
+                            android:text="No RM"
+                            android:textAppearance="@style/TextAppearance.Design.Counter"
+                            android:textSize="11sp" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtNoRM"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:layout_weight="1"
+                            android:text="No RM"
+                            android:textAlignment="viewStart"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/textView11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:layout_weight="1"
+                            android:text="Nama"
+                            android:textAppearance="@style/TextAppearance.Design.Counter"
+                            android:textSize="11sp" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtNama"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:layout_weight="1"
+                            android:text="Nama Pasien"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/textView15"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:layout_weight="1"
+                            android:text="Tgl Lahir"
+                            android:textAppearance="@style/TextAppearance.Design.Counter"
+                            android:textSize="11sp" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtTglLahir"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:layout_weight="1"
+                            android:text="Tgl Lahir"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/textView17"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:layout_weight="1"
+                            android:text="Alamat"
+                            android:textAppearance="@style/TextAppearance.Design.Counter"
+                            android:textSize="11sp" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtAlamat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:layout_weight="1"
+                            android:text="Alamat"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <android.support.constraint.ConstraintLayout
+                        style="@style/Widget.CardContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="0dp">
+
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/imageView10"
+                            android:layout_width="20dp"
+                            android:layout_height="15dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginStart="20dp"
+                            app:layout_constraintHorizontal_bias="0.386"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/calendar" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/textView13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="serif"
+                            android:text="Tgl Periksa"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large"
+                            android:textSize="13sp"
+                            android:textColor="@color/pink_tua"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintLeft_toRightOf="@+id/imageView10"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/textInputLayout4"
+                            android:layout_width="500dp"
+                            android:layout_height="51dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView10"
+                            app:layout_constraintVertical_bias="0.0">
+
+                            <EditText
+                                android:id="@+id/editdatepicker"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:editable="false"
+                                android:fontFamily="serif"
+                                android:hint="Pilih Tanggal Periksa"
+                                android:inputType="none"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
+                                android:textSize="14sp" />
+                        </android.support.design.widget.TextInputLayout>
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+
+                <android.support.v7.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+
+                <android.support.constraint.ConstraintLayout
+                    style="@style/Widget.CardContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="0dp">
+
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="20dp"
+                        android:layout_height="15dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="20dp"
+                        app:layout_constraintHorizontal_bias="0.386"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/klinik" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginStart="6dp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/pink_tua"
+                        android:text="Klinik"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large"
+                        android:textSize="13sp"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintLeft_toRightOf="@+id/imageView9"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginTop="0dp" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/textInputLayout3"
+                        android:layout_width="500dp"
+                        android:layout_height="51dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+                        app:layout_constraintVertical_bias="0.0">
+
+                        <EditText
+                            android:id="@+id/editklinikpicker"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:editable="false"
+                            android:hint="Pilih Klinik Tujuan"
+                            android:inputType="none"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
+                            android:textSize="14sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardVied3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/cardview_light_background"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <android.support.constraint.ConstraintLayout
+                        style="@style/Widget.CardContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="0dp">
+
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/imageDokter"
+                            android:layout_width="20dp"
+                            android:layout_height="15dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginStart="20dp"
+                            app:layout_constraintHorizontal_bias="0.393"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/doctor" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtLabelDokter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginStart="6dp"
+                            android:fontFamily="serif"
+                            android:text="Dokter"
+                            android:textColor="@color/pink_tua"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large"
+                            android:textSize="13sp"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintLeft_toRightOf="@+id/imageDokter"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                        .
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/textInputLayout13"
+                            android:layout_width="500dp"
+                            android:layout_height="51dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageDokter"
+                            app:layout_constraintVertical_bias="0.133">
+
+                            <EditText
+                                android:id="@+id/editDokPicker"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif"
+                                android:hint="Pilih Dokter"
+                                android:inputType="none"
+                                android:editable="false"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
+                                android:textSize="14sp" />
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/btnRegistration"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="88dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="80dp"
+                            android:background="@color/mdtp_button_color"
+                            android:textColor="@color/cardview_light_background"
+                            android:text="Daftar"
+                            app:layout_constraintHorizontal_bias="0.498"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp" />
+                    </android.support.constraint.ConstraintLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.design.widget.CoordinatorLayout>
+
+
+</RelativeLayout>

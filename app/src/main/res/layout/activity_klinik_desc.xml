@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/imageViewJamBesuk"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:adjustViewBounds="false"
+            android:background="@android:color/white"
+            android:src="@drawable/logo_bethesda" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Poliklinik RS Bethesda"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textSize="16sp"
+            app:fontFamily="sans-serif-condensed" />
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            >
+
+            <com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:expansion_openOnlyOne="true"
+                android:orientation="vertical">
+
+                <include layout="@layout/poli_reg_layout" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#CCC" />
+
+                <include layout="@layout/poli_kartini_layout" />
+
+                            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#CCC" />
+
+                <include layout="@layout/poli_sore_layout" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#CCC" />
+
+                <include layout="@layout/poli_vvip_layout" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#CCC" />
+
+                <include layout="@layout/poli_minggu_layout" />
+
+            </com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="30dp"
+            android:text="Bila dokter yang anda tuju tidak ada di Poliklinik Reguler silahkan cari di Poliklinik Kartini, Klinik Kartini 2, ataupun Poliklinik Sore"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/md_material_blue_800"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:fontFamily="sans-serif-condensed" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:text="Untuk lebih jelasnya anda bisa membuka Menu jadwal dokter"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/md_material_blue_800"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:fontFamily="sans-serif-condensed" />
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
