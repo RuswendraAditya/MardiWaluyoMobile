@@ -4,11 +4,8 @@ buildscript {
         google()
     }
     dependencies {
-<<<<<<< HEAD
         classpath 'com.android.tools.build:gradle:3.1.4'
-=======
         classpath 'com.android.tools.build:gradle:3.3.2'
->>>>>>> fa2255f0429227c4bec19a5fe3f7dead71b5c47d
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
         classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.8.2'
@@ -18,7 +15,6 @@ apply plugin: 'jacoco'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.robohorse'
 apply plugin: 'com.github.kt3k.coveralls'
 
 coveralls {
@@ -26,11 +22,8 @@ coveralls {
 }
 
 android {
-    compileSdkVersion 26
-<<<<<<< HEAD
+    compileSdkVersion 28
     buildToolsVersion '27.0.3'
-=======
->>>>>>> fa2255f0429227c4bec19a5fe3f7dead71b5c47d
 
     defaultConfig {
         minSdkVersion 10
@@ -54,13 +47,10 @@ android {
             testCoverageEnabled true
         }
     }
-}
-
-Properties properties = new Properties()
-try {
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-} catch (Exception e) {
-    properties.load(project.rootProject.file('bintray.properties').newDataInputStream())
+    compileOptions {
+        sourceCompatibility = 1.7
+        targetCompatibility = 1.7
+    }
 }
 
 bintray {

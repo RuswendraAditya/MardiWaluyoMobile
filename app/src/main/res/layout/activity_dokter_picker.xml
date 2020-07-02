@@ -11,7 +11,7 @@
         android:textColor="@color/pink_muda"
         android:inputType="textVisiblePassword" />
 
-    <android.support.v7.widget.ListViewCompat
+    <androidx.appcompat.widget.ListViewCompat
         android:id="@+id/listDokter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

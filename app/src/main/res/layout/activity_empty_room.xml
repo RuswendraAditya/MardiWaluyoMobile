@@ -8,7 +8,7 @@
     android:fillViewport="true"
     android:scrollbars="vertical">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
@@ -111,10 +111,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.078" />
 
-<<<<<<< HEAD
-=======
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView50"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
@@ -130,7 +128,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
->>>>>>> fa2255f0429227c4bec19a5fe3f7dead71b5c47d
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 

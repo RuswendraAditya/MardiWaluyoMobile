@@ -3,11 +3,9 @@ package mardiwaluyo.com.mardiwaluyomobile.main.utility;
 import android.content.Context;
 import android.util.Log;
 
-<<<<<<< HEAD:app/src/main/java/mardiwaluyo/com/mardiwaluyomobile/main/utility/DateUtil.java
+
 import org.json.JSONArray;
 import org.json.JSONException;
-=======
->>>>>>> fa2255f0429227c4bec19a5fe3f7dead71b5c47d:app/src/main/java/bethesda/com/bethesdahospitalmobile/main/utility/DateUtil.java
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -33,21 +31,15 @@ public class DateUtil {
     static OkHttpClient client = WebServicesUtil.connect();
     static String url = WebServicesUtil.getServiceUrl();
 
-<<<<<<< HEAD:app/src/main/java/mardiwaluyo/com/mardiwaluyomobile/main/utility/DateUtil.java
-=======
 
->>>>>>> fa2255f0429227c4bec19a5fe3f7dead71b5c47d:app/src/main/java/bethesda/com/bethesdahospitalmobile/main/utility/DateUtil.java
     public static Integer getMaxDaysRegis(Context context) {
         //final Integer  max_days = 7;
         Integer  max_days =0 ;
         if(SharedData.getKey(context, "maxHari")!=null)
         {
             try {
-<<<<<<< HEAD:app/src/main/java/mardiwaluyo/com/mardiwaluyomobile/main/utility/DateUtil.java
                  max_days  = Integer.valueOf(SharedData.getKey(context, "maxHari"));
-=======
                 max_days  = Integer.valueOf(SharedData.getKey(context, "maxHari"));
->>>>>>> fa2255f0429227c4bec19a5fe3f7dead71b5c47d:app/src/main/java/bethesda/com/bethesdahospitalmobile/main/utility/DateUtil.java
                 return  max_days;
             }
             catch (Exception e)
@@ -126,10 +118,6 @@ public class DateUtil {
         return true;
     }
 
-<<<<<<< HEAD:app/src/main/java/mardiwaluyo/com/mardiwaluyomobile/main/utility/DateUtil.java
-
-=======
->>>>>>> fa2255f0429227c4bec19a5fe3f7dead71b5c47d:app/src/main/java/bethesda/com/bethesdahospitalmobile/main/utility/DateUtil.java
     public static Boolean getMaxDate(Context context ) throws IOException {
         Request request = new Request.Builder().url(url + "/GetOpenHari/01/").build();
         Response response = client.newCall(request).execute();
@@ -146,8 +134,4 @@ public class DateUtil {
         }
         return true;
     }
-<<<<<<< HEAD:app/src/main/java/mardiwaluyo/com/mardiwaluyomobile/main/utility/DateUtil.java
-
-=======
->>>>>>> fa2255f0429227c4bec19a5fe3f7dead71b5c47d:app/src/main/java/bethesda/com/bethesdahospitalmobile/main/utility/DateUtil.java
 }

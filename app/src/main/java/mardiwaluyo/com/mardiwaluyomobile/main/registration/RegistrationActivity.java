@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -164,7 +164,7 @@ public class RegistrationActivity extends AppCompatActivity implements DatePicke
         dpd.setMaxDate(cal_max);
         Locale local_indonesia = new Locale("id", "ID");
         dpd.setLocale(local_indonesia);
-        dpd.show(getFragmentManager(), "Datepickerdialog");
+        dpd.show(getSupportFragmentManager(), "Datepickerdialog");
     }
 
     @OnClick(R.id.editklinikpicker)

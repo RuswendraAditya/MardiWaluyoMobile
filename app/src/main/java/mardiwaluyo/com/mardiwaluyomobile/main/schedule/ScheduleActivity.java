@@ -7,12 +7,12 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -111,11 +111,9 @@ public class ScheduleActivity extends AppCompatActivity {
                         Bundle args = new Bundle();
                         args.putString("namaDokter", namaDokter);
                         args.putString("nid",nid);
-<<<<<<< HEAD:app/src/main/java/mardiwaluyo/com/mardiwaluyomobile/main/schedule/ScheduleActivity.java
                                 dokterScheduleFragment.setArguments(args);
-=======
+
                         dokterScheduleFragment.setArguments(args);
->>>>>>> fa2255f0429227c4bec19a5fe3f7dead71b5c47d:app/src/main/java/bethesda/com/bethesdahospitalmobile/main/schedule/ScheduleActivity.java
                         return  dokterScheduleFragment;
 
 

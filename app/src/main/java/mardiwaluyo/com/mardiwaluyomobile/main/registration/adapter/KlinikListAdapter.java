@@ -11,8 +11,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import bethesda.com.bethesdahospitalmobile.R;
-import bethesda.com.bethesdahospitalmobile.main.registration.model.Klinik;
+import mardiwaluyo.com.mardiwaluyomobile.R;
+import mardiwaluyo.com.mardiwaluyomobile.main.registration.model.Klinik;
+
 
 /**
  * Created by Wendra on 10/16/2017.

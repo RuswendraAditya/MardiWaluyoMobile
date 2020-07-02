@@ -1,12 +1,11 @@
 package mardiwaluyo.com.mardiwaluyomobile.main.registration;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -14,21 +13,14 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
-import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import mardiwaluyo.com.mardiwaluyomobile.R;
-import mardiwaluyo.com.mardiwaluyomobile.main.main.MainMenuActivity;
 import mardiwaluyo.com.mardiwaluyomobile.main.registration.adapter.DokterListAdapter;
 import mardiwaluyo.com.mardiwaluyomobile.main.registration.model.Dokter;
 import mardiwaluyo.com.mardiwaluyomobile.main.registration.service.DokterServices;
-import mardiwaluyo.com.mardiwaluyomobile.main.schedule.DokterScheduleFragment;
-import mardiwaluyo.com.mardiwaluyomobile.main.schedule.ScheduleActivity;
 import mardiwaluyo.com.mardiwaluyomobile.main.utility.DatabaseHandler;
 import mardiwaluyo.com.mardiwaluyomobile.main.utility.DialogAlert;
 import butterknife.BindView;

@@ -47,15 +47,9 @@
             android:name=".main.room.EmptyRoomActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".main.registration.CalendarPicker" />
-<<<<<<< HEAD
-        <activity android:name=".main.info.JamBesukActivity" />
-        <activity android:name=".main.info.GuideActivity"></activity>
-=======
         <activity android:name=".main.info.JamBesukActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".main.info.KlinikDescActivity"
-            android:screenOrientation="portrait"></activity>
->>>>>>> fa2255f0429227c4bec19a5fe3f7dead71b5c47d
+
     </application>
 
 </manifest>

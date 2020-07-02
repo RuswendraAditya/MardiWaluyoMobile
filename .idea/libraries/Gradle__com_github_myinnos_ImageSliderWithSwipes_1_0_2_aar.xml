@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.myinnos:ImageSliderWithSwipes:1.0.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ff2f2abbb1b513dcdad0e4d217bd57b9/jetified-ImageSliderWithSwipes-1.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ff2f2abbb1b513dcdad0e4d217bd57b9/jetified-ImageSliderWithSwipes-1.0.2/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.myinnos/ImageSliderWithSwipes/1.0.2/5888e36028a574c571c1a1e3239226298caf1d7d/ImageSliderWithSwipes-1.0.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.myinnos/ImageSliderWithSwipes/1.0.2/d4d961a42fdfd66bd27218b002970252acbff311/ImageSliderWithSwipes-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

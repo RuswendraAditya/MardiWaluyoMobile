@@ -13,7 +13,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageViewRegistrationHistory"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -24,7 +24,7 @@
         android:adjustViewBounds="false"
         android:src="@drawable/logo_rsmw" />
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
         android:textColor="@color/pink_tua"
         app:fontFamily="serif" />
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtNotif"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
         android:textStyle="bold"
         tools:gravity="center" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_registration_history"
         android:layout_width="match_parent"
         android:layout_height="522dp"

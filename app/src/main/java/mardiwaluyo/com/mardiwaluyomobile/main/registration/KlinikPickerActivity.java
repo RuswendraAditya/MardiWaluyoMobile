@@ -2,36 +2,27 @@ package mardiwaluyo.com.mardiwaluyomobile.main.registration;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD:app/src/main/java/mardiwaluyo/com/mardiwaluyomobile/main/registration/KlinikPickerActivity.java
 import mardiwaluyo.com.mardiwaluyomobile.R;
+import mardiwaluyo.com.mardiwaluyomobile.main.registration.model.Klinik;
+import mardiwaluyo.com.mardiwaluyomobile.main.registration.service.KlinikServices;
 import mardiwaluyo.com.mardiwaluyomobile.main.utility.DatabaseHandler;
-=======
-import bethesda.com.bethesdahospitalmobile.R;
 import bethesda.com.bethesdahospitalmobile.main.registration.adapter.KlinikListAdapter;
-import bethesda.com.bethesdahospitalmobile.main.registration.model.Klinik;
-import bethesda.com.bethesdahospitalmobile.main.registration.service.KlinikServices;
-import bethesda.com.bethesdahospitalmobile.main.utility.DatabaseHandler;
+
 import bethesda.com.bethesdahospitalmobile.main.utility.DialogAlert;
->>>>>>> fa2255f0429227c4bec19a5fe3f7dead71b5c47d:app/src/main/java/bethesda/com/bethesdahospitalmobile/main/registration/KlinikPickerActivity.java
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnItemClick;

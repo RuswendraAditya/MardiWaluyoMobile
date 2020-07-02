@@ -7,13 +7,13 @@
     tools:context="mardiwaluyo.com.mardiwaluyomobile.main.registration.RegistrationActivity">
 
 
-    <android.support.design.widget.CoordinatorLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
 
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -25,7 +25,7 @@
                 android:paddingTop="8dp"
                 android:weightSum="1">
 
-                <android.support.v7.widget.AppCompatImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/imageViewRegis"
                     android:layout_width="40dp"
                     android:layout_height="35dp"
@@ -37,7 +37,7 @@
                     android:adjustViewBounds="false"
                     android:src="@drawable/logo_rsmw" />
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textView14"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                     android:textSize="14sp" />
 
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textView9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                     android:textSize="11sp"
                     android:textStyle="bold" />
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textViewinFo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                     android:textSize="11sp"
                     android:textStyle="bold" />
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/cardView1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Informasi Pasien"
@@ -93,7 +93,7 @@
                             android:textColor="@color/pink_tua"
                             android:textSize="14sp" />
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/textView10"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
                             android:textAppearance="@style/TextAppearance.Design.Counter"
                             android:textSize="11sp" />
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/txtNoRM"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
                             android:textSize="12sp"
                             android:textStyle="bold" />
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/textView11"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                             android:textAppearance="@style/TextAppearance.Design.Counter"
                             android:textSize="11sp" />
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/txtNama"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
                             android:textSize="12sp"
                             android:textStyle="bold" />
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/textView15"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
                             android:textAppearance="@style/TextAppearance.Design.Counter"
                             android:textSize="11sp" />
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/txtTglLahir"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -157,7 +157,7 @@
                             android:textSize="12sp"
                             android:textStyle="bold" />
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/textView17"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -167,7 +167,7 @@
                             android:textAppearance="@style/TextAppearance.Design.Counter"
                             android:textSize="11sp" />
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/txtAlamat"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -180,8 +180,8 @@
 
                     </LinearLayout>
 
-                </android.support.v7.widget.CardView>
-                <android.support.v7.widget.CardView
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
                     android:id="@+id/cardView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -189,7 +189,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp">
 
-                    <android.support.constraint.ConstraintLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         style="@style/Widget.CardContent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -197,7 +197,7 @@
                         tools:layout_editor_absoluteY="0dp">
 
 
-                        <android.support.v7.widget.AppCompatImageView
+                        <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/imageView10"
                             android:layout_width="20dp"
                             android:layout_height="15dp"
@@ -211,7 +211,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:srcCompat="@drawable/calendar" />
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/textView13"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -230,7 +230,7 @@
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <android.support.design.widget.TextInputLayout
+                        <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/textInputLayout4"
                             android:layout_width="500dp"
                             android:layout_height="51dp"
@@ -252,15 +252,15 @@
                                 android:inputType="none"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
                                 android:textSize="14sp" />
-                        </android.support.design.widget.TextInputLayout>
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                    </android.support.constraint.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </android.support.v7.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
 
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                 android:id="@+id/cardView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -268,7 +268,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp">
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     style="@style/Widget.CardContent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -276,7 +276,7 @@
                     tools:layout_editor_absoluteY="0dp">
 
 
-                    <android.support.v7.widget.AppCompatImageView
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/imageView9"
                         android:layout_width="20dp"
                         android:layout_height="15dp"
@@ -290,7 +290,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/klinik" />
 
-                    <android.support.v7.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/textView12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -309,7 +309,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_marginTop="0dp" />
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayout3"
                         android:layout_width="500dp"
                         android:layout_height="51dp"
@@ -331,13 +331,13 @@
                             android:inputType="none"
                             android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
                             android:textSize="14sp" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:id="@+id/cardVied3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -346,7 +346,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp">
 
-                    <android.support.constraint.ConstraintLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         style="@style/Widget.CardContent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -354,7 +354,7 @@
                         tools:layout_editor_absoluteY="0dp">
 
 
-                        <android.support.v7.widget.AppCompatImageView
+                        <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/imageDokter"
                             android:layout_width="20dp"
                             android:layout_height="15dp"
@@ -368,7 +368,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:srcCompat="@drawable/doctor" />
 
-                        <android.support.v7.widget.AppCompatTextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/txtLabelDokter"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -387,7 +387,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
                         .
 
-                        <android.support.design.widget.TextInputLayout
+                        <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/textInputLayout13"
                             android:layout_width="500dp"
                             android:layout_height="51dp"
@@ -410,9 +410,9 @@
                                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
                                 android:textSize="14sp" />
 
-                        </android.support.design.widget.TextInputLayout>
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                        <android.support.v7.widget.AppCompatButton
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btnRegistration"
                             style="@style/Widget.AppCompat.Button.Colored"
                             android:layout_width="88dp"
@@ -429,11 +429,11 @@
                             app:layout_constraintTop_toTopOf="parent"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp" />
-                    </android.support.constraint.ConstraintLayout>
-                </android.support.v7.widget.CardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
-    </android.support.design.widget.CoordinatorLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
 </RelativeLayout>

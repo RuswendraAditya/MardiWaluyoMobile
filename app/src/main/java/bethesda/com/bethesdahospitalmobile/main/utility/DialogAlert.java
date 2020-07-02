@@ -2,19 +2,16 @@ package bethesda.com.bethesdahospitalmobile.main.utility;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 
-import bethesda.com.bethesdahospitalmobile.R;
-import bethesda.com.bethesdahospitalmobile.main.schedule.ScheduleActivity;
+import mardiwaluyo.com.mardiwaluyomobile.R;
+import mardiwaluyo.com.mardiwaluyomobile.main.schedule.ScheduleActivity;
 
-
-/**
- * Created by Wendra on 10/6/2017.
- */
 
 public class DialogAlert {
 

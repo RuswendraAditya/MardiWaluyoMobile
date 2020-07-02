@@ -10,16 +10,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD:app/src/main/java/mardiwaluyo/com/mardiwaluyomobile/main/registration/service/KlinikServices.java
+
 import mardiwaluyo.com.mardiwaluyomobile.main.registration.model.Klinik;
 import mardiwaluyo.com.mardiwaluyomobile.main.utility.DatabaseHandler;
 import mardiwaluyo.com.mardiwaluyomobile.main.utility.WebServicesUtil;
-=======
-import bethesda.com.bethesdahospitalmobile.main.registration.model.Dokter;
-import bethesda.com.bethesdahospitalmobile.main.registration.model.Klinik;
-import bethesda.com.bethesdahospitalmobile.main.utility.DatabaseHandler;
-import bethesda.com.bethesdahospitalmobile.main.utility.WebServicesUtil;
->>>>>>> fa2255f0429227c4bec19a5fe3f7dead71b5c47d:app/src/main/java/bethesda/com/bethesdahospitalmobile/main/registration/service/KlinikServices.java
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;

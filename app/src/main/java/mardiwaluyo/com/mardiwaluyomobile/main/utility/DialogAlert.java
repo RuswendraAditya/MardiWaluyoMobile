@@ -2,14 +2,13 @@ package mardiwaluyo.com.mardiwaluyomobile.main.utility;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 
 import mardiwaluyo.com.mardiwaluyomobile.R;
-import mardiwaluyo.com.mardiwaluyomobile.main.registration.DokterPickerActivity;
 import mardiwaluyo.com.mardiwaluyomobile.main.schedule.ScheduleActivity;
 
 

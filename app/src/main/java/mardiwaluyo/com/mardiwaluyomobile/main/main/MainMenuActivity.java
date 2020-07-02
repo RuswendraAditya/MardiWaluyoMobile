@@ -3,8 +3,8 @@ package mardiwaluyo.com.mardiwaluyomobile.main.main;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.Display;
 import android.view.View;
 import android.widget.TextView;
@@ -13,7 +13,7 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.util.ArrayList;
 
-<<<<<<< HEAD:app/src/main/java/mardiwaluyo/com/mardiwaluyomobile/main/main/MainMenuActivity.java
+
 import mardiwaluyo.com.mardiwaluyomobile.R;
 import mardiwaluyo.com.mardiwaluyomobile.main.info.JamBesukActivity;
 import mardiwaluyo.com.mardiwaluyomobile.main.login.LoginActivity;
@@ -29,24 +29,9 @@ import mardiwaluyo.com.mardiwaluyomobile.main.utility.DateUtil;
 import mardiwaluyo.com.mardiwaluyomobile.main.utility.DialogAlert;
 import mardiwaluyo.com.mardiwaluyomobile.main.utility.NetworkStatus;
 import mardiwaluyo.com.mardiwaluyomobile.main.utility.SharedData;
-=======
-import bethesda.com.bethesdahospitalmobile.R;
-import bethesda.com.bethesdahospitalmobile.main.info.JamBesukActivity;
 import bethesda.com.bethesdahospitalmobile.main.info.KlinikDescActivity;
-import bethesda.com.bethesdahospitalmobile.main.login.LoginActivity;
-import bethesda.com.bethesdahospitalmobile.main.main.adapter.MenuAdapter;
-import bethesda.com.bethesdahospitalmobile.main.main.model.Menu;
-import bethesda.com.bethesdahospitalmobile.main.registration.RegistrationActivity;
-import bethesda.com.bethesdahospitalmobile.main.registration.RegistrationHistoryActivity;
-import bethesda.com.bethesdahospitalmobile.main.room.EmptyRoomActivity;
-import bethesda.com.bethesdahospitalmobile.main.schedule.ScheduleActivity;
-import bethesda.com.bethesdahospitalmobile.main.utility.ApkUtil;
-import bethesda.com.bethesdahospitalmobile.main.utility.AutoFitGridLayoutManager;
-import bethesda.com.bethesdahospitalmobile.main.utility.DateUtil;
-import bethesda.com.bethesdahospitalmobile.main.utility.DialogAlert;
-import bethesda.com.bethesdahospitalmobile.main.utility.NetworkStatus;
-import bethesda.com.bethesdahospitalmobile.main.utility.SharedData;
->>>>>>> fa2255f0429227c4bec19a5fe3f7dead71b5c47d:app/src/main/java/bethesda/com/bethesdahospitalmobile/main/main/MainMenuActivity.java
+
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

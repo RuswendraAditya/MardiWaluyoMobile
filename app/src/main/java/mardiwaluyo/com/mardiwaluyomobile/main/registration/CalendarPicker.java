@@ -2,7 +2,7 @@ package mardiwaluyo.com.mardiwaluyomobile.main.registration;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
@@ -49,7 +49,7 @@ public class CalendarPicker extends AppCompatActivity implements DatePickerDialo
         dpd.setMaxDate(cal);
         Locale local_indonesia = new Locale("id", "ID");
         dpd.setLocale(local_indonesia);
-        dpd.show(getFragmentManager(), "Datepickerdialog");
+        dpd.show(getSupportFragmentManager(), "Datepickerdialog");
 
     }
 
@@ -62,7 +62,7 @@ public class CalendarPicker extends AppCompatActivity implements DatePickerDialo
     @Override
     public void onResume() {
         super.onResume();
-        DatePickerDialog dpd = (DatePickerDialog) getFragmentManager().findFragmentByTag("Datepickerdialog");
+        DatePickerDialog dpd = (DatePickerDialog) getSupportFragmentManager().findFragmentByTag("Datepickerdialog");
         if(dpd != null) dpd.setOnDateSetListener(this);
     }
 }

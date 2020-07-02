@@ -1,6 +1,6 @@
 package mardiwaluyo.com.mardiwaluyomobile.main.info;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import mardiwaluyo.com.mardiwaluyomobile.R;

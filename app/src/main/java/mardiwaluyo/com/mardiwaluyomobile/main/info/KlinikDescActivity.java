@@ -1,8 +1,10 @@
 package bethesda.com.bethesdahospitalmobile.main.info;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import bethesda.com.bethesdahospitalmobile.R;
+
+import mardiwaluyo.com.mardiwaluyomobile.R;
+
 public class KlinikDescActivity extends AppCompatActivity {
 
     @Override
